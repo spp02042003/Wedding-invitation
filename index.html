@@ -165,31 +165,31 @@
 <body class="h-full flex flex-col items-center justify-between min-h-screen text-mucha-dark antialiased selection:bg-mucha-gold selection:text-white">
 
   <header class="fixed top-0 left-0 right-0 z-50 nav-glass">
-    <div class="max-w-4xl mx-auto px-3 sm:px-6 py-2 sm:py-3 flex justify-between items-center gap-2 sm:gap-4">
+    <div class="max-w-4xl mx-auto px-2 sm:px-6 py-1.5 sm:py-3 flex justify-between items-center gap-1 sm:gap-4">
       <!-- Monogram Logo as Interactive Home Button -->
       <button onclick="goToPage(0)" class="flex items-center shrink-0 cursor-pointer hover:opacity-80 transition-opacity focus:outline-none" title="返回鈞啟頁面">
-        <span class="font-serif text-mucha-gold font-bold text-xs sm:text-sm tracking-wider whitespace-nowrap">家＋珈＝HOME</span>
+        <span class="font-serif text-mucha-gold font-bold text-[10px] sm:text-sm tracking-wider whitespace-nowrap">家＋珈＝HOME</span>
       </button>
 
       <!-- Navigation Tabs -->
       <nav class="flex items-center space-x-1 sm:space-x-2 overflow-x-auto no-scrollbar py-0.5">
-        <button onclick="goToPage(0)" id="nav-btn-0" class="shrink-0 nav-tab text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 rounded-full transition-all duration-300 font-medium text-mucha-gold border border-mucha-gold/40 bg-mucha-gold/10 whitespace-nowrap">
-          <i class="fa-solid fa-envelope mr-1"></i>鈞啟
+        <button onclick="goToPage(0)" id="nav-btn-0" class="shrink-0 nav-tab text-[10px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full transition-all duration-300 font-medium text-mucha-gold border border-mucha-gold/40 bg-mucha-gold/10 whitespace-nowrap">
+          <i class="fa-solid fa-envelope mr-0.5 sm:mr-1"></i>鈞啟
         </button>
-        <button onclick="goToPage(1)" id="nav-btn-1" class="shrink-0 nav-tab text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold whitespace-nowrap">
-          <i class="fa-solid fa-scroll mr-1"></i>邀請
+        <button onclick="goToPage(1)" id="nav-btn-1" class="shrink-0 nav-tab text-[10px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold whitespace-nowrap">
+          <i class="fa-solid fa-scroll mr-0.5 sm:mr-1"></i>邀請
         </button>
-        <button onclick="goToPage(2)" id="nav-btn-2" class="shrink-0 nav-tab text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold whitespace-nowrap">
-          <i class="fa-solid fa-location-dot mr-1"></i>資訊
+        <button onclick="goToPage(2)" id="nav-btn-2" class="shrink-0 nav-tab text-[10px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold whitespace-nowrap">
+          <i class="fa-solid fa-location-dot mr-0.5 sm:mr-1"></i>資訊
         </button>
-        <button onclick="goToPage(3)" id="nav-btn-3" class="shrink-0 nav-tab text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold whitespace-nowrap">
-          <i class="fa-solid fa-heart mr-1"></i>歡迎
+        <button onclick="goToPage(3)" id="nav-btn-3" class="shrink-0 nav-tab text-[10px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold whitespace-nowrap">
+          <i class="fa-solid fa-heart mr-0.5 sm:mr-1"></i>歡迎
         </button>
       </nav>
 
-      <!-- Music Toggle Button & Audio Element -->
-      <button id="music-btn" onclick="toggleAudio()" title="播放/暫停背景音樂" class="shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-mucha-gold/50 flex items-center justify-center text-mucha-gold hover:bg-mucha-gold/20 transition-all">
-        <i class="fa-solid fa-music text-xs sm:text-sm" id="music-icon"></i>
+      <!-- Compact Music Toggle Button for Mobile -->
+      <button id="music-btn" onclick="toggleAudio()" title="播放/暫停背景音樂" class="shrink-0 w-7 h-7 sm:w-9 sm:h-9 rounded-full border border-mucha-gold/50 flex items-center justify-center text-mucha-gold hover:bg-mucha-gold/20 transition-all">
+        <i class="fa-solid fa-music text-[10px] sm:text-sm" id="music-icon"></i>
       </button>
 
       <!-- Background Audio Elements -->
@@ -548,9 +548,9 @@
         if (!btn) continue;
 
         if (i === currentPage) {
-          btn.className = "shrink-0 nav-tab text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 rounded-full transition-all duration-300 font-medium text-mucha-gold border border-mucha-gold/40 bg-mucha-gold/10 whitespace-nowrap";
+          btn.className = "shrink-0 nav-tab text-[10px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full transition-all duration-300 font-medium text-mucha-gold border border-mucha-gold/40 bg-mucha-gold/10 whitespace-nowrap";
         } else {
-          btn.className = "shrink-0 nav-tab text-[11px] sm:text-xs px-2.5 sm:px-3 py-1 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold whitespace-nowrap";
+          btn.className = "shrink-0 nav-tab text-[10px] sm:text-xs px-2 sm:px-3 py-0.5 sm:py-1 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold whitespace-nowrap";
         }
       }
     }
@@ -568,14 +568,14 @@
       if (audio.paused) {
         audio.play().then(() => {
           audioStarted = true;
-          if (musicIcon) musicIcon.className = "fa-solid fa-compact-disc text-xs sm:text-sm animate-spin-slow";
+          if (musicIcon) musicIcon.className = "fa-solid fa-compact-disc text-[10px] sm:text-sm animate-spin-slow";
           if (musicBtn) musicBtn.classList.add('bg-mucha-gold/20');
         }).catch((e) => {
           console.log("Audio playback error:", e);
         });
       } else {
         audio.pause();
-        if (musicIcon) musicIcon.className = "fa-solid fa-music text-xs sm:text-sm";
+        if (musicIcon) musicIcon.className = "fa-solid fa-music text-[10px] sm:text-sm";
         if (musicBtn) musicBtn.classList.remove('bg-mucha-gold/20');
       }
     };
@@ -591,7 +591,7 @@
           audioStarted = true;
           const musicIcon = document.getElementById('music-icon');
           const musicBtn = document.getElementById('music-btn');
-          if (musicIcon) musicIcon.className = "fa-solid fa-compact-disc text-xs sm:text-sm animate-spin-slow";
+          if (musicIcon) musicIcon.className = "fa-solid fa-compact-disc text-[10px] sm:text-sm animate-spin-slow";
           if (musicBtn) musicBtn.classList.add('bg-mucha-gold/20');
         }).catch(() => {
           // Autoplay policy prevented playback until explicit click
