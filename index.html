@@ -68,16 +68,29 @@
     /* Art Nouveau Corner Ornaments */
     .corner-ornament {
       position: absolute;
-      width: 42px;
-      height: 42px;
+      width: 30px;
+      height: 30px;
       border-color: #C5A059;
       pointer-events: none;
       z-index: 10;
     }
-    .corner-tl { top: 12px; left: 12px; border-top: 3px solid; border-left: 3px solid; border-top-left-radius: 8px; }
-    .corner-tr { top: 12px; right: 12px; border-top: 3px solid; border-right: 3px solid; border-top-right-radius: 8px; }
-    .corner-bl { bottom: 12px; left: 12px; border-bottom: 3px solid; border-left: 3px solid; border-bottom-left-radius: 8px; }
-    .corner-br { bottom: 12px; right: 12px; border-bottom: 3px solid; border-right: 3px solid; border-bottom-right-radius: 8px; }
+    @media (min-width: 640px) {
+      .corner-ornament {
+        width: 42px;
+        height: 42px;
+      }
+    }
+    .corner-tl { top: 8px; left: 8px; border-top: 2.5px solid; border-left: 2.5px solid; border-top-left-radius: 6px; }
+    .corner-tr { top: 8px; right: 8px; border-top: 2.5px solid; border-right: 2.5px solid; border-top-right-radius: 6px; }
+    .corner-bl { bottom: 8px; left: 8px; border-bottom: 2.5px solid; border-left: 2.5px solid; border-bottom-left-radius: 6px; }
+    .corner-br { bottom: 8px; right: 8px; border-bottom: 2.5px solid; border-right: 2.5px solid; border-bottom-right-radius: 6px; }
+
+    @media (min-width: 640px) {
+      .corner-tl { top: 12px; left: 12px; border-top: 3px solid; border-left: 3px solid; border-top-left-radius: 8px; }
+      .corner-tr { top: 12px; right: 12px; border-top: 3px solid; border-right: 3px solid; border-top-right-radius: 8px; }
+      .corner-bl { bottom: 12px; left: 12px; border-bottom: 3px solid; border-left: 3px solid; border-bottom-left-radius: 8px; }
+      .corner-br { bottom: 12px; right: 12px; border-bottom: 3px solid; border-right: 3px solid; border-bottom-right-radius: 8px; }
+    }
 
     /* 3D Page Turn Container */
     .book-container {
@@ -152,7 +165,7 @@
 <body class="h-full flex flex-col items-center justify-between min-h-screen text-mucha-dark antialiased selection:bg-mucha-gold selection:text-white">
 
   <header class="fixed top-0 left-0 right-0 z-50 nav-glass">
-    <div class="max-w-4xl mx-auto px-2 sm:px-4 py-2 sm:py-3 flex justify-between items-center gap-1 sm:gap-3">
+    <div class="max-w-4xl mx-auto px-3 sm:px-6 py-2 sm:py-3 flex justify-between items-center gap-2 sm:gap-4">
       <!-- Monogram Logo as Interactive Home Button -->
       <button onclick="goToPage(0)" class="flex items-center shrink-0 cursor-pointer hover:opacity-80 transition-opacity focus:outline-none" title="返回鈞啟頁面">
         <span class="font-serif text-mucha-gold font-bold text-xs sm:text-sm tracking-wider whitespace-nowrap">家＋珈＝HOME</span>
@@ -187,11 +200,11 @@
     </div>
   </header>
 
-  <main class="w-full max-w-2xl px-2 sm:px-4 pt-16 sm:pt-20 pb-12 sm:pb-16 flex-grow flex items-center justify-center book-container my-auto">
+  <main class="w-full max-w-2xl px-3 sm:px-6 pt-16 sm:pt-20 pb-12 sm:pb-16 flex-grow flex items-center justify-center book-container my-auto">
     
     <!-- PAGE 0: 鈞啟 (Cover) -->
     <section id="page-0" class="book-page page-active w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-2 sm:my-4 relative">
-      <div class="mucha-card mucha-border p-3.5 sm:p-6 relative min-h-[580px] sm:min-h-[640px] flex flex-col justify-between items-center text-center">
+      <div class="mucha-card mucha-border p-4 sm:p-7 relative min-h-[580px] sm:min-h-[640px] flex flex-col justify-between items-center text-center">
         <!-- Corner Ornaments -->
         <div class="corner-ornament corner-tl"></div>
         <div class="corner-ornament corner-tr"></div>
@@ -199,7 +212,7 @@
         <div class="corner-ornament corner-br"></div>
 
         <!-- Header Title -->
-        <div class="mt-1 sm:mt-2 mb-2 sm:mb-3">
+        <div class="mt-1 sm:mt-2 mb-2 sm:mb-3 px-2">
           <p class="font-cinzel tracking-[0.2em] sm:tracking-[0.3em] text-[10px] sm:text-xs text-mucha-bronze uppercase">Wedding Invitation</p>
           <div class="flex items-center justify-center space-x-2 my-1">
             <span class="h-[1px] w-8 sm:w-12 bg-mucha-gold"></span>
@@ -212,7 +225,7 @@
         </div>
 
         <!-- Mucha Cover Art Image -->
-        <div class="relative my-1 sm:my-2 w-full max-w-[250px] sm:max-w-xs rounded-t-full border-2 sm:border-4 border-mucha-gold p-1 shadow-lg bg-mucha-cream">
+        <div class="relative my-1 sm:my-2 w-full max-w-[220px] sm:max-w-xs rounded-t-full border-2 sm:border-4 border-mucha-gold p-1 shadow-lg bg-mucha-cream">
           <div class="overflow-hidden rounded-t-full border border-mucha-bronze/40 relative group">
             <img 
               src="https://i.postimg.cc/9fCBPnX9/01-A3-hi-res-grb.jpg" 
@@ -245,7 +258,7 @@
 
     <!-- PAGE 1: 邀請 (Invitation) -->
     <section id="page-1" class="book-page page-turn-right absolute w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-2 sm:my-4">
-      <div class="mucha-card mucha-border p-3.5 sm:p-6 relative min-h-[580px] sm:min-h-[640px] flex flex-col justify-between items-center text-center">
+      <div class="mucha-card mucha-border p-4 sm:p-7 relative min-h-[580px] sm:min-h-[640px] flex flex-col justify-between items-center text-center">
         <!-- Corner Ornaments -->
         <div class="corner-ornament corner-tl"></div>
         <div class="corner-ornament corner-tr"></div>
@@ -253,7 +266,7 @@
         <div class="corner-ornament corner-br"></div>
 
         <!-- Header -->
-        <div class="mt-1 sm:mt-2">
+        <div class="mt-1 sm:mt-2 px-2">
           <p class="font-cinzel tracking-[0.2em] sm:tracking-[0.25em] text-[10px] sm:text-xs text-mucha-bronze uppercase">Honored Guests</p>
           <div class="flex items-center justify-center space-x-2 my-0.5 sm:my-1">
             <span class="h-[1px] w-8 sm:w-10 bg-mucha-gold"></span>
@@ -263,7 +276,7 @@
         </div>
 
         <!-- Invitation Main Text -->
-        <div class="my-1.5 sm:my-2 px-1 sm:px-6 text-mucha-dark/90 font-serif space-y-1 sm:space-y-2">
+        <div class="my-1.5 sm:my-2 px-2 sm:px-6 text-mucha-dark/90 font-serif space-y-1 sm:space-y-2">
           <p class="text-xs sm:text-lg text-mucha-darkgold font-bold tracking-wide">
             謹定於 2027年1月16日（星期六）
           </p>
@@ -276,7 +289,7 @@
         </div>
 
         <!-- Invitation Photo -->
-        <div class="relative my-1 sm:my-2 mx-auto w-full max-w-[210px] sm:max-w-xs rounded-lg overflow-hidden shadow-md border border-mucha-gold/30">
+        <div class="relative my-1 sm:my-2 mx-auto w-full max-w-[190px] sm:max-w-xs rounded-lg overflow-hidden shadow-md border border-mucha-gold/30">
           <img 
             src="https://i.postimg.cc/KjW6T6df/MIJ01629.jpg" 
             alt="張家銘與柯驊珈婚紗照" 
@@ -286,7 +299,7 @@
         </div>
 
         <!-- Family Names Grid -->
-        <div class="w-full my-1 sm:my-2 p-1 sm:p-2 text-center font-serif">
+        <div class="w-full my-1 sm:my-2 px-1 sm:p-2 text-center font-serif">
           <div class="grid grid-cols-2 gap-2 sm:gap-4 text-center text-xs sm:text-base">
             <!-- Groom's Side -->
             <div class="space-y-1 py-0.5">
@@ -310,7 +323,7 @@
         </div>
 
         <!-- Navigation Buttons -->
-        <div class="flex justify-between w-full mt-1 sm:mt-2 pt-2 border-t border-mucha-gold/30 font-serif">
+        <div class="flex justify-between w-full mt-1 sm:mt-2 pt-2 border-t border-mucha-gold/30 font-serif px-1">
           <button onclick="goToPage(0)" class="px-4 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm rounded-full border border-mucha-gold text-mucha-darkgold hover:bg-mucha-gold/10 transition-all">
             <i class="fa-solid fa-arrow-left mr-1"></i> 上一頁
           </button>
@@ -323,7 +336,7 @@
 
     <!-- PAGE 2: 資訊 (Info / Map / Countdown) -->
     <section id="page-2" class="book-page page-turn-right absolute w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-2 sm:my-4">
-      <div class="mucha-card mucha-border p-3.5 sm:p-6 relative min-h-[580px] sm:min-h-[640px] flex flex-col justify-between text-center">
+      <div class="mucha-card mucha-border p-4 sm:p-7 relative min-h-[580px] sm:min-h-[640px] flex flex-col justify-between text-center">
         <!-- Corner Ornaments -->
         <div class="corner-ornament corner-tl"></div>
         <div class="corner-ornament corner-tr"></div>
@@ -331,7 +344,7 @@
         <div class="corner-ornament corner-br"></div>
 
         <!-- Title -->
-        <div class="mt-1 sm:mt-2">
+        <div class="mt-1 sm:mt-2 px-2">
           <p class="font-cinzel tracking-[0.2em] sm:tracking-[0.25em] text-[10px] sm:text-xs text-mucha-bronze uppercase">Location & Schedule</p>
           <div class="flex items-center justify-center space-x-2 my-0.5 sm:my-1">
             <span class="h-[1px] w-8 sm:w-10 bg-mucha-gold"></span>
@@ -340,8 +353,8 @@
           </div>
         </div>
 
-        <!-- Featured Photo (Enlarged to fit card height) -->
-        <div class="relative my-1.5 sm:my-2 mx-auto w-full max-w-[260px] sm:max-w-[300px] rounded-lg overflow-hidden shadow-md border-2 border-mucha-gold/60 p-0.5 bg-mucha-cream">
+        <!-- Featured Photo (Enlarged & Uncropped) -->
+        <div class="relative my-1 sm:my-1.5 mx-auto w-full max-w-[240px] sm:max-w-[300px] rounded-lg overflow-hidden shadow-md border-2 border-mucha-gold/60 p-0.5 bg-mucha-cream">
           <img 
             src="https://i.postimg.cc/g01qwRqN/MIJ01758.jpg" 
             alt="婚禮地點精選照片" 
@@ -351,32 +364,32 @@
         </div>
 
         <!-- Countdown Panel -->
-        <div class="my-1 p-2 sm:p-2.5 rounded-xl bg-white/60 backdrop-blur-md text-mucha-dark shadow-md border border-mucha-gold/50">
+        <div class="my-1 p-2 sm:p-2.5 rounded-xl bg-white/60 backdrop-blur-md text-mucha-dark shadow-md border border-mucha-gold/50 mx-1">
           <p class="text-[10px] sm:text-xs font-cinzel tracking-widest text-mucha-darkgold font-bold mb-0.5">COUNTDOWN TO OUR BIG DAY</p>
           <div class="grid grid-cols-4 gap-1.5 sm:gap-2 text-center">
             <div class="p-1 sm:p-1.5 rounded bg-mucha-gold/10 border border-mucha-gold/30">
-              <span id="cd-days" class="block text-lg sm:text-2xl font-bold font-cinzel text-mucha-darkgold">00</span>
+              <span id="cd-days" class="block text-base sm:text-2xl font-bold font-cinzel text-mucha-darkgold">00</span>
               <span class="text-[9px] sm:text-[10px] text-mucha-dark/75 font-serif">天 Days</span>
             </div>
             <div class="p-1 sm:p-1.5 rounded bg-mucha-gold/10 border border-mucha-gold/30">
-              <span id="cd-hours" class="block text-lg sm:text-2xl font-bold font-cinzel text-mucha-darkgold">00</span>
+              <span id="cd-hours" class="block text-base sm:text-2xl font-bold font-cinzel text-mucha-darkgold">00</span>
               <span class="text-[9px] sm:text-[10px] text-mucha-dark/75 font-serif">時 Hours</span>
             </div>
             <div class="p-1 sm:p-1.5 rounded bg-mucha-gold/10 border border-mucha-gold/30">
-              <span id="cd-mins" class="block text-lg sm:text-2xl font-bold font-cinzel text-mucha-darkgold">00</span>
+              <span id="cd-mins" class="block text-base sm:text-2xl font-bold font-cinzel text-mucha-darkgold">00</span>
               <span class="text-[9px] sm:text-[10px] text-mucha-dark/75 font-serif">分 Mins</span>
             </div>
             <div class="p-1 sm:p-1.5 rounded bg-mucha-gold/10 border border-mucha-gold/30">
-              <span id="cd-secs" class="block text-lg sm:text-2xl font-bold font-cinzel text-mucha-darkgold">00</span>
+              <span id="cd-secs" class="block text-base sm:text-2xl font-bold font-cinzel text-mucha-darkgold">00</span>
               <span class="text-[9px] sm:text-[10px] text-mucha-dark/75 font-serif">秒 Secs</span>
             </div>
           </div>
         </div>
 
         <!-- Venue Details & Map Side-by-Side -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 my-1 sm:my-1.5 w-full text-left font-serif items-stretch">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 my-1 sm:my-1.5 w-full text-left font-serif items-stretch px-1">
           <!-- Left: Venue Details -->
-          <div class="space-y-1.5 bg-white/70 p-2 sm:p-2.5 rounded-lg border border-mucha-gold/30 text-xs sm:text-sm flex flex-col justify-center">
+          <div class="space-y-1.5 bg-white/70 p-2.5 sm:p-3 rounded-lg border border-mucha-gold/30 text-xs sm:text-sm flex flex-col justify-center">
             <div class="flex items-start space-x-2">
               <i class="fa-regular fa-clock text-mucha-gold text-sm sm:text-base mt-0.5 shrink-0"></i>
               <div>
@@ -395,11 +408,11 @@
           </div>
 
           <!-- Right: Google Maps Frame -->
-          <div class="rounded-lg overflow-hidden border-2 border-mucha-gold shadow-sm min-h-[120px] sm:min-h-[140px] relative bg-gray-100 flex">
+          <div class="rounded-lg overflow-hidden border-2 border-mucha-gold shadow-sm min-h-[110px] sm:min-h-[140px] relative bg-gray-100 flex">
             <iframe 
               title="高雄日航酒店地圖"
               src="https://maps.google.com/maps?q=%E9%AB%98%E9%9B%84%E6%97%A5%E8%88%AA%E9%85%92%E5%BA%97&t=&z=16&ie=UTF8&iwloc=&output=embed"
-              class="w-full h-full min-h-[120px] sm:min-h-[140px] border-0" 
+              class="w-full h-full min-h-[110px] sm:min-h-[140px] border-0" 
               allowfullscreen="" 
               loading="lazy">
             </iframe>
@@ -407,13 +420,13 @@
         </div>
 
         <!-- Transportation Guide -->
-        <div class="text-left text-[11px] sm:text-xs text-mucha-dark/90 bg-mucha-cream p-2 rounded border border-mucha-gold/30 space-y-1 font-serif leading-relaxed">
+        <div class="text-left text-[11px] sm:text-xs text-mucha-dark/90 bg-mucha-cream p-2.5 sm:p-3 rounded border border-mucha-gold/30 space-y-1 font-serif leading-relaxed mx-1">
           <p><i class="fa-solid fa-train-subway text-mucha-gold mr-1"></i> <strong>捷運：</strong> 搭乘高雄捷運紅線至「三多商圈站」由2號出口步行約 8 分鐘即可抵達。</p>
           <p><i class="fa-solid fa-car text-mucha-gold mr-1"></i> <strong>停車資訊：</strong> 請由林森四路轉入飯店地下停車場。附近中華新光停車場、林森文林停車場，為飯店特約停車場。</p>
         </div>
 
         <!-- Navigation Buttons -->
-        <div class="flex justify-between w-full mt-1.5 sm:mt-2 pt-2 border-t border-mucha-gold/30 font-serif">
+        <div class="flex justify-between w-full mt-1.5 sm:mt-2 pt-2 border-t border-mucha-gold/30 font-serif px-1">
           <button onclick="goToPage(1)" class="px-4 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm rounded-full border border-mucha-gold text-mucha-darkgold hover:bg-mucha-gold/10 transition-all">
             <i class="fa-solid fa-arrow-left mr-1"></i> 上一頁
           </button>
@@ -426,7 +439,7 @@
 
     <!-- PAGE 3: 歡迎 (Welcome) -->
     <section id="page-3" class="book-page page-turn-right absolute w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-2 sm:my-4">
-      <div class="mucha-card mucha-border p-3.5 sm:p-6 relative min-h-[580px] sm:min-h-[640px] flex flex-col justify-between items-center text-center">
+      <div class="mucha-card mucha-border p-4 sm:p-7 relative min-h-[580px] sm:min-h-[640px] flex flex-col justify-between items-center text-center">
         <!-- Corner Ornaments -->
         <div class="corner-ornament corner-tl"></div>
         <div class="corner-ornament corner-tr"></div>
@@ -434,7 +447,7 @@
         <div class="corner-ornament corner-br"></div>
 
         <!-- Title -->
-        <div class="mt-1 sm:mt-2">
+        <div class="mt-1 sm:mt-2 px-2">
           <p class="font-cinzel tracking-[0.2em] sm:tracking-[0.25em] text-[10px] sm:text-xs text-mucha-bronze uppercase">Warm Welcome</p>
           <div class="flex items-center justify-center space-x-2 my-0.5 sm:my-1">
             <span class="h-[1px] w-8 sm:w-10 bg-mucha-gold"></span>
@@ -451,7 +464,7 @@
         </div>
 
         <!-- Uncropped Wedding Photo -->
-        <div class="relative my-1 sm:my-2 mx-auto w-full max-w-[220px] sm:max-w-[270px]">
+        <div class="relative my-1 sm:my-2 mx-auto w-full max-w-[200px] sm:max-w-[260px]">
           <img 
             src="https://i.postimg.cc/MTNqSfdj/MIJ02653.jpg" 
             alt="張家銘與柯驊珈婚紗照" 
@@ -471,7 +484,7 @@
         </div>
 
         <!-- Back Button -->
-        <div class="flex justify-start w-full mt-1.5 sm:mt-2 pt-2 border-t border-mucha-gold/30 font-serif">
+        <div class="flex justify-start w-full mt-1.5 sm:mt-2 pt-2 border-t border-mucha-gold/30 font-serif px-1">
           <button onclick="goToPage(2)" class="px-4 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm rounded-full border border-mucha-gold text-mucha-darkgold hover:bg-mucha-gold/10 transition-all">
             <i class="fa-solid fa-arrow-left mr-1"></i> 上一頁
           </button>
