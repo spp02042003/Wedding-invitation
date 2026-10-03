@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>張家銘 & 柯驊珈 婚禮喜帖 | Wedding Invitation</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- Google Fonts: LXGW WenKai TC (Traditional Chinese Handwriting Font) & Cinzel & Great Vibes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=LXGW+WenKai+TC:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            mucha: {
+              gold: '#C5A059',
+              darkgold: '#8A6113',
+              bronze: '#A37432',
+              cream: '#FAF6EE',
+              paper: '#F4EAD8',
+              rose: '#D28B7D',
+              sage: '#8A9B86',
+              burgundy: '#5B232E',
+              dark: '#2A2118'
+            }
+          },
+          fontFamily: {
+            serif: ['"LXGW WenKai TC"', 'cursive', 'serif'],
+            cinzel: ['Cinzel', 'serif'],
+            cursive: ['"Great Vibes"', 'cursive']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #1e1915;
+      background-image: radial-gradient(#3a2e24 1px, transparent 1px), radial-gradient(#3a2e24 1px, #1a1410 1px);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+      font-family: 'LXGW WenKai TC', 'KaiTi', '標楷體', cursive, serif;
+      color: #2A2118;
+      overflow-x: hidden;
+    }
+
+    /* Gold foil border styling */
+    .mucha-border {
+      border: 2px solid #C5A059;
+      box-shadow: inset 0 0 0 4px #FAF6EE, inset 0 0 0 6px #C5A059, 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .mucha-card {
+      background: linear-gradient(135deg, #FAF6EE 0%, #F4EAD8 100%);
+      position: relative;
+    }
+
+    /* Art Nouveau Corner Ornaments */
+    .corner-ornament {
+      position: absolute;
+      width: 42px;
+      height: 42px;
+      border-color: #C5A059;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .corner-tl { top: 12px; left: 12px; border-top: 3px solid; border-left: 3px solid; border-top-left-radius: 8px; }
+    .corner-tr { top: 12px; right: 12px; border-top: 3px solid; border-right: 3px solid; border-top-right-radius: 8px; }
+    .corner-bl { bottom: 12px; left: 12px; border-bottom: 3px solid; border-left: 3px solid; border-bottom-left-radius: 8px; }
+    .corner-br { bottom: 12px; right: 12px; border-bottom: 3px solid; border-right: 3px solid; border-bottom-right-radius: 8px; }
+
+    /* 3D Page Turn Container */
+    .book-container {
+      perspective: 1800px;
+      perspective-origin: 50% 50%;
+    }
+
+    .book-page {
+      transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000), opacity 0.6s ease;
+      backface-visibility: hidden;
+    }
+
+    .page-turn-left {
+      transform: rotateY(-180deg);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .page-turn-right {
+      transform: rotateY(180deg);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .page-active {
+      transform: rotateY(0deg);
+      opacity: 1;
+      z-index: 20;
+    }
+
+    /* Glassmorphism Navigation */
+    .nav-glass {
+      background: rgba(30, 25, 21, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(197, 160, 89, 0.4);
+    }
+
+    /* Glowing gold button */
+    .btn-mucha {
+      background: linear-gradient(135deg, #C5A059 0%, #A37432 100%);
+      color: #FAF6EE;
+      box-shadow: 0 4px 15px rgba(163, 116, 50, 0.4);
+      transition: all 0.3s ease;
+    }
+    .btn-mucha:hover {
+      background: linear-gradient(135deg, #A37432 0%, #8A6113 100%);
+      box-shadow: 0 6px 20px rgba(138, 97, 19, 0.6);
+      transform: translateY(-2px);
+    }
+
+    /* Smooth Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F4EAD8;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C5A059;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+
+<body class="h-full flex flex-col items-center justify-between min-h-screen text-mucha-dark antialiased selection:bg-mucha-gold selection:text-white">
+
+  <!-- Top Navigation Bar -->
+  <header class="fixed top-0 left-0 right-0 z-50 nav-glass">
+    <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+      <!-- Monogram Logo -->
+      <div class="flex items-center space-x-2">
+        <span class="font-cinzel text-mucha-gold font-bold text-xl tracking-wider">M & H</span>
+        <span class="text-xs text-mucha-gold/70 hidden sm:inline-block font-serif">| 張家銘 ❤ 柯驊珈</span>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="flex space-x-1 sm:space-x-3">
+        <button onclick="goToPage(0)" id="nav-btn-0" class="nav-tab text-xs sm:text-sm px-3 py-1.5 rounded-full transition-all duration-300 font-medium text-mucha-gold border border-mucha-gold/40 bg-mucha-gold/10">
+          <i class="fa-solid fa-envelope mr-1"></i>鈞啟
+        </button>
+        <button onclick="goToPage(1)" id="nav-btn-1" class="nav-tab text-xs sm:text-sm px-3 py-1.5 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold">
+          <i class="fa-solid fa-scroll mr-1"></i>邀請
+        </button>
+        <button onclick="goToPage(2)" id="nav-btn-2" class="nav-tab text-xs sm:text-sm px-3 py-1.5 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold">
+          <i class="fa-solid fa-location-dot mr-1"></i>資訊
+        </button>
+        <button onclick="goToPage(3)" id="nav-btn-3" class="nav-tab text-xs sm:text-sm px-3 py-1.5 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold">
+          <i class="fa-solid fa-heart mr-1"></i>祝福
+        </button>
+      </nav>
+      <!-- Music Toggle Button & YouTube Embedded Audio -->
+      <button id="music-btn" onclick="toggleAudio()" title="播放/暫停背景音樂" class="w-9 h-9 rounded-full border border-mucha-gold/50 flex items-center justify-center text-mucha-gold hover:bg-mucha-gold/20 transition-all">
+        <i class="fa-solid fa-music text-sm" id="music-icon"></i>
+      </button>
+      <!-- Hidden YouTube Player Container -->
+      <div id="yt-player-container" class="absolute w-1 h-1 overflow-hidden opacity-0 pointer-events-none -z-50"></div>
+    </div>
+  </header>
+
+  <!-- Main Flip Container -->
+  <main class="w-full max-w-2xl px-3 sm:px-4 pt-20 pb-16 flex-grow flex items-center justify-center book-container my-auto">
+    
+    <!-- PAGE 1: 鈞啟 (Cover / Opening) -->
+    <section id="page-0" class="book-page page-active w-full bg-white rounded-xl shadow-2xl overflow-hidden my-4 relative">
+      <div class="mucha-card mucha-border p-3 sm:p-5 relative min-h-[640px] flex flex-col justify-between items-center text-center">
+        <!-- Corner Ornaments -->
+        <div class="corner-ornament corner-tl"></div>
+        <div class="corner-ornament corner-tr"></div>
+        <div class="corner-ornament corner-bl"></div>
+        <div class="corner-ornament corner-br"></div>
+
+        <!-- Decorative Top Header -->
+        <div class="mt-2 mb-3">
+          <p class="font-cinzel tracking-[0.3em] text-xs text-mucha-bronze uppercase">Wedding Invitation</p>
+          <div class="flex items-center justify-center space-x-2 my-1">
+            <span class="h-[1px] w-12 bg-mucha-gold"></span>
+            <span class="text-mucha-gold text-lg font-serif">✦ 鈞啟 ✦</span>
+            <span class="h-[1px] w-12 bg-mucha-gold"></span>
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-bold text-mucha-dark tracking-widest font-serif mt-1">
+            張家銘 <span class="text-mucha-gold font-cursive text-3xl font-normal">&</span> 柯驊珈
+          </h1>
+        </div>
+
+        <!-- Mucha Cover Illustration Image Frame -->
+        <div class="relative my-2 w-full max-w-sm rounded-t-full border-4 border-mucha-gold p-1 shadow-lg bg-mucha-cream">
+          <div class="overflow-hidden rounded-t-full border border-mucha-bronze/40 relative group">
+            <img 
+              src="https://i.postimg.cc/9fCBPnX9/01-A3-hi-res-grb.jpg" 
+              alt="慕夏風格喜帖封面" 
+              class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
+              onerror="this.onerror=null; this.src='https://placehold.co/600x800/FAF6EE/8A6113?text=Art+Nouveau+Wedding';"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-mucha-dark/40 via-transparent to-transparent opacity-60"></div>
+          </div>
+        </div>
+
+        <!-- Cover Text & Action Button -->
+        <div class="my-3 z-10 font-serif">
+          <p class="text-sm sm:text-base text-mucha-dark/90 font-medium tracking-wide">
+            誠摯邀請您 陪伴我們開啟新的人生篇章
+          </p>
+          <p class="font-cinzel text-xs text-mucha-bronze tracking-widest mt-1">
+            SATURDAY, JANUARY 16, 2027
+          </p>
+        </div>
+
+        <div class="mb-2">
+          <button onclick="goToPage(1)" class="btn-mucha px-8 py-2.5 rounded-full font-medium text-sm sm:text-base flex items-center space-x-2 mx-auto font-serif">
+            <span>開啟喜帖</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2: 邀請 (Invitation) -->
+    <section id="page-1" class="book-page page-turn-right absolute w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-4">
+      <div class="mucha-card mucha-border p-5 sm:p-8 relative min-h-[640px] flex flex-col justify-between items-center text-center">
+        <!-- Corner Ornaments -->
+        <div class="corner-ornament corner-tl"></div>
+        <div class="corner-ornament corner-tr"></div>
+        <div class="corner-ornament corner-bl"></div>
+        <div class="corner-ornament corner-br"></div>
+
+        <!-- Header -->
+        <div class="mt-2">
+          <p class="font-cinzel tracking-[0.25em] text-xs text-mucha-bronze uppercase">Honored Guests</p>
+          <div class="flex items-center justify-center space-x-2 my-1">
+            <span class="h-[1px] w-10 bg-mucha-gold"></span>
+            <span class="text-mucha-gold text-lg font-semibold font-serif">✦ 誠摯邀請 ✦</span>
+            <span class="h-[1px] w-10 bg-mucha-gold"></span>
+          </div>
+        </div>
+
+        <!-- Invitation Message -->
+        <div class="my-4 px-2 sm:px-6 text-mucha-dark/90 font-serif space-y-3">
+          <p class="text-lg sm:text-xl text-mucha-darkgold font-bold tracking-wide">
+            謹定於 2027年1月16日（星期六）
+          </p>
+          <p class="text-xl sm:text-2xl text-mucha-dark font-bold tracking-widest py-1">
+            為 張家銘 與 柯驊珈
+          </p>
+          <p class="text-lg sm:text-xl text-mucha-darkgold font-bold tracking-wide">
+            舉行結婚囍宴
+          </p>
+        </div>
+
+        <!-- Invitation Photo -->
+        <div class="relative my-2 mx-auto w-full max-w-xs sm:max-w-sm rounded-lg overflow-hidden shadow-md border border-mucha-gold/30">
+          <img 
+            src="https://i.postimg.cc/KjW6T6df/MIJ01629.jpg" 
+            alt="張家銘與柯驊珈婚紗照" 
+            class="w-full h-auto object-cover rounded-lg transform transition-transform duration-500 hover:scale-105"
+            onerror="this.onerror=null; this.src='https://placehold.co/400x300/FAF6EE/8A6113?text=Wedding+Photo';"
+          />
+        </div>
+
+        <!-- Family Names Grid (Borderless) -->
+        <div class="w-full my-3 p-2 text-center font-serif">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center text-base">
+            <!-- Groom's Side -->
+            <div class="space-y-1.5 py-1">
+              <div class="text-sm text-mucha-gold font-bold">
+                <span>男方主婚人</span>
+              </div>
+              <p class="font-bold text-mucha-dark text-lg">新郎：張家銘</p>
+              <p class="text-sm sm:text-base text-mucha-dark/85">父親：張仁杰</p>
+              <p class="text-sm sm:text-base text-mucha-dark/85">母親：劉怡君</p>
+            </div>
+
+            <!-- Bride's Side -->
+            <div class="space-y-1.5 py-1">
+              <div class="text-sm text-mucha-gold font-bold">
+                <span>女方主婚人</span>
+              </div>
+              <p class="font-bold text-mucha-dark text-lg">新娘：柯驊珈</p>
+              <p class="text-sm sm:text-base text-mucha-dark/85">父親：柯俊誠</p>
+              <p class="text-sm sm:text-base text-mucha-dark/85">母親：蔡麗卿</p>
+              <p class="text-sm sm:text-base text-mucha-dark/85">祖母：吳美枝</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation buttons -->
+        <div class="flex justify-between w-full mt-2 pt-2 border-t border-mucha-gold/30 font-serif">
+          <button onclick="goToPage(0)" class="px-5 py-2 text-xs sm:text-sm rounded-full border border-mucha-gold text-mucha-darkgold hover:bg-mucha-gold/10 transition-all">
+            <i class="fa-solid fa-arrow-left mr-1"></i> 上一頁
+          </button>
+          <button onclick="goToPage(2)" class="btn-mucha px-6 py-2 text-xs sm:text-sm rounded-full font-medium">
+            婚禮資訊 <i class="fa-solid fa-arrow-right ml-1"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3: 資訊 (Info / Time / Location / Countdown) -->
+    <section id="page-2" class="book-page page-turn-right absolute w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-4">
+      <div class="mucha-card mucha-border p-4 sm:p-7 relative min-h-[640px] flex flex-col justify-between text-center">
+        <!-- Corner Ornaments -->
+        <div class="corner-ornament corner-tl"></div>
+        <div class="corner-ornament corner-tr"></div>
+        <div class="corner-ornament corner-bl"></div>
+        <div class="corner-ornament corner-br"></div>
+
+        <!-- Title -->
+        <div class="mt-2">
+          <p class="font-cinzel tracking-[0.25em] text-xs text-mucha-bronze uppercase">Location & Schedule</p>
+          <div class="flex items-center justify-center space-x-2 my-1">
+            <span class="h-[1px] w-10 bg-mucha-gold"></span>
+            <span class="text-mucha-gold text-lg font-semibold font-serif">✦ 婚禮資訊 ✦</span>
+            <span class="h-[1px] w-10 bg-mucha-gold"></span>
+          </div>
+        </div>
+
+        <!-- Countdown Timer Card (Light Frosted Glass / Glassmorphism) -->
+        <div class="my-2 p-3 rounded-xl bg-white/60 backdrop-blur-md text-mucha-dark shadow-md border border-mucha-gold/50">
+          <p class="text-xs font-cinzel tracking-widest text-mucha-darkgold font-bold mb-1.5">COUNTDOWN TO OUR BIG DAY</p>
+          <div class="grid grid-cols-4 gap-2 text-center">
+            <div class="p-1.5 rounded bg-mucha-gold/10 border border-mucha-gold/30">
+              <span id="cd-days" class="block text-xl sm:text-2xl font-bold font-cinzel text-mucha-darkgold">00</span>
+              <span class="text-[10px] text-mucha-dark/75 font-serif">天 Days</span>
+            </div>
+            <div class="p-1.5 rounded bg-mucha-gold/10 border border-mucha-gold/30">
+              <span id="cd-hours" class="block text-xl sm:text-2xl font-bold font-cinzel text-mucha-darkgold">00</span>
+              <span class="text-[10px] text-mucha-dark/75 font-serif">時 Hours</span>
+            </div>
+            <div class="p-1.5 rounded bg-mucha-gold/10 border border-mucha-gold/30">
+              <span id="cd-mins" class="block text-xl sm:text-2xl font-bold font-cinzel text-mucha-darkgold">00</span>
+              <span class="text-[10px] text-mucha-dark/75 font-serif">分 Mins</span>
+            </div>
+            <div class="p-1.5 rounded bg-mucha-gold/10 border border-mucha-gold/30">
+              <span id="cd-secs" class="block text-xl sm:text-2xl font-bold font-cinzel text-mucha-darkgold">00</span>
+              <span class="text-[10px] text-mucha-dark/75 font-serif">秒 Secs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Venue Details -->
+        <div class="space-y-1.5 text-left bg-white/70 p-3 rounded-lg border border-mucha-gold/30 my-1 text-xs sm:text-sm font-serif">
+          <div class="flex items-start space-x-2">
+            <i class="fa-regular fa-clock text-mucha-gold text-base mt-0.5"></i>
+            <div>
+              <p class="font-bold text-mucha-dark">日期時間：</p>
+              <p class="text-mucha-dark/90 font-medium">2027年1月16日 下午5:30入席</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-2">
+            <i class="fa-solid fa-hotel text-mucha-gold text-base mt-0.5"></i>
+            <div>
+              <p class="font-bold text-mucha-dark">婚禮地點：</p>
+              <p class="text-mucha-darkgold font-bold">高雄日航酒店</p>
+              <p class="text-xs text-mucha-dark/75">806 高雄市前鎮區林森四路268號</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fixed Embedded Google Map -->
+        <div class="my-2 rounded-lg overflow-hidden border-2 border-mucha-gold shadow-sm h-40 relative bg-gray-100">
+          <iframe 
+            title="高雄日航酒店地圖"
+            src="https://maps.google.com/maps?q=%E9%AB%98%E9%9B%84%E6%97%A5%E8%88%AA%E9%85%92%E5%BA%97&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            class="w-full h-full border-0" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+
+        <!-- Transport Info Grid -->
+        <div class="text-left text-xs sm:text-sm text-mucha-dark/90 bg-mucha-cream p-2.5 rounded border border-mucha-gold/30 space-y-1.5 font-serif">
+          <p><i class="fa-solid fa-train-subway text-mucha-gold mr-1.5"></i><b>捷運：</b>紅線三多商圈站 2號出口步行約7分鐘</p>
+          <p class="leading-relaxed">
+            <i class="fa-solid fa-car text-mucha-gold mr-1.5"></i><b>駕車：</b>請由林森四路轉入飯店地下專用停車場。<br/>
+            <span class="ml-5 block text-mucha-dark/80">周邊另有中華新光停車場、林森文林停車場，皆為飯店特約停車場</span>
+          </p>
+        </div>
+
+        <!-- Action Links -->
+        <div class="flex justify-between items-center mt-2 pt-2 border-t border-mucha-gold/30 font-serif">
+          <button onclick="goToPage(1)" class="px-4 py-1.5 text-xs sm:text-sm rounded-full border border-mucha-gold text-mucha-darkgold hover:bg-mucha-gold/10">
+            <i class="fa-solid fa-arrow-left mr-1"></i> 上一頁
+          </button>
+          
+          <a href="https://maps.google.com/?q=高雄日航酒店" target="_blank" rel="noopener noreferrer" class="btn-mucha px-4 py-1.5 text-xs sm:text-sm rounded-full inline-flex items-center space-x-1">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <span>開啟 Google 地圖</span>
+          </a>
+
+          <button onclick="goToPage(3)" class="btn-mucha px-4 py-1.5 text-xs sm:text-sm rounded-full font-medium">
+            祝福專區 <i class="fa-solid fa-arrow-right ml-1"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4: 祝福 (Blessings & Welcoming Message) -->
+    <section id="page-3" class="book-page page-turn-right absolute w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-4">
+      <div class="mucha-card mucha-border p-5 sm:p-8 relative min-h-[640px] flex flex-col justify-between text-center">
+        <!-- Corner Ornaments -->
+        <div class="corner-ornament corner-tl"></div>
+        <div class="corner-ornament corner-tr"></div>
+        <div class="corner-ornament corner-bl"></div>
+        <div class="corner-ornament corner-br"></div>
+
+        <!-- Title -->
+        <div class="mt-1">
+          <p class="font-cinzel tracking-[0.25em] text-xs text-mucha-bronze uppercase">Wedding Wishes</p>
+          <div class="flex items-center justify-center space-x-2 my-1">
+            <span class="h-[1px] w-10 bg-mucha-gold"></span>
+            <span class="text-mucha-gold text-xl font-bold font-serif">✦ 祝福 ✦</span>
+            <span class="h-[1px] w-10 bg-mucha-gold"></span>
+          </div>
+        </div>
+
+        <!-- Slogan -->
+        <div class="my-3 px-4 py-3 rounded-xl bg-mucha-cream border border-mucha-gold/30 shadow-inner font-serif">
+          <p class="text-xl sm:text-2xl text-mucha-darkgold font-bold tracking-widest">
+            「銘刻於心，珈許永恆」
+          </p>
+        </div>
+
+        <!-- Wedding Photo (No Frame/Border) -->
+        <div class="relative my-3 mx-auto w-full max-w-xs sm:max-w-sm rounded-lg overflow-hidden shadow-lg">
+          <img 
+            src="https://i.postimg.cc/MTNqSfdj/MIJ02653.jpg" 
+            alt="張家銘與柯驊珈婚紗照" 
+            class="w-full h-auto object-cover transform transition-transform duration-500 hover:scale-105 rounded-lg"
+            onerror="this.onerror=null; this.src='https://placehold.co/400x600/FAF6EE/8A6113?text=Wedding+Photo';"
+          />
+        </div>
+
+        <!-- Welcoming Sentence -->
+        <div class="my-4 px-4 py-3 bg-mucha-cream/80 rounded-lg border border-mucha-gold/20 font-serif">
+          <p class="text-base sm:text-lg text-mucha-dark font-bold leading-relaxed tracking-wide">
+            誠摯歡迎您的光臨與祝福，期待與您一同見證我們的幸福時刻！
+          </p>
+        </div>
+
+        <!-- Navigation buttons -->
+        <div class="flex justify-between w-full mt-3 pt-2 border-t border-mucha-gold/30 font-serif">
+          <button onclick="goToPage(2)" class="px-5 py-2 text-xs sm:text-sm rounded-full border border-mucha-gold text-mucha-darkgold hover:bg-mucha-gold/10">
+            <i class="fa-solid fa-arrow-left mr-1"></i> 上一頁
+          </button>
+          <button onclick="goToPage(0)" class="px-5 py-2 text-xs sm:text-sm rounded-full bg-mucha-gold/20 text-mucha-darkgold font-medium hover:bg-mucha-gold/30">
+            返回首頁 <i class="fa-solid fa-rotate-left ml-1"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Custom Alert Notification Toast -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-mucha-burgundy text-mucha-cream px-6 py-3 rounded-full shadow-2xl border border-mucha-gold transition-all duration-300 transform translate-y-16 opacity-0 flex items-center space-x-2 text-xs sm:text-sm font-serif">
+    <i class="fa-solid fa-circle-check text-mucha-gold"></i>
+    <span id="toast-message">完成！</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w-full text-center py-4 text-[11px] text-mucha-gold/60 border-t border-mucha-gold/20 bg-black/40 font-serif">
+    <p>© 2027 張家銘 & 柯驊珈 婚禮喜帖 · All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // State management
+    let currentPage = 0;
+    const totalPages = 4;
+    let isAudioPlaying = false;
+    let userHasInteracted = false;
+    let player;
+
+    // YouTube Video ID for Dario Marianelli - Dawn (Pride & Prejudice)
+    const VIDEO_ID = 'nc_5XL6ae4I';
+
+    // Load YouTube IFrame Player API
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('yt-player-container', {
+        height: '1',
+        width: '1',
+        videoId: VIDEO_ID,
+        playerVars: {
+          'autoplay': 1,
+          'loop': 1,
+          'playlist': VIDEO_ID,
+          'controls': 0,
+          'playsinline': 1
+        },
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    function onPlayerReady(event) {
+      event.target.playVideo();
+    }
+
+    function onPlayerStateChange(event) {
+      if (event.data === YT.PlayerState.PLAYING) {
+        isAudioPlaying = true;
+        updateMusicUI(true);
+      } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+        isAudioPlaying = false;
+        updateMusicUI(false);
+      }
+    }
+
+    function toggleAudio() {
+      if (!player || typeof player.playVideo !== 'function') return;
+
+      if (isAudioPlaying) {
+        player.pauseVideo();
+        showToast("背景音樂已暫停");
+      } else {
+        player.playVideo();
+        showToast("♪ 正在播放：Dario Marianelli - Dawn");
+      }
+    }
+
+    function updateMusicUI(playing) {
+      const musicIcon = document.getElementById('music-icon');
+      if (!musicIcon) return;
+      if (playing) {
+        musicIcon.className = "fa-solid fa-compact-disc text-sm animate-spin text-mucha-gold";
+      } else {
+        musicIcon.className = "fa-solid fa-music text-sm text-mucha-gold";
+      }
+    }
+
+    // Global user interaction handler to unblock audio on mobile and desktop browsers
+    function initAutoplayOnInteraction() {
+      const handleInteraction = () => {
+        if (!userHasInteracted) {
+          userHasInteracted = true;
+          if (player && typeof player.playVideo === 'function' && !isAudioPlaying) {
+            player.playVideo();
+          }
+        }
+      };
+
+      document.addEventListener('click', handleInteraction, { once: true });
+      document.addEventListener('touchstart', handleInteraction, { once: true });
+      document.addEventListener('scroll', handleInteraction, { once: true });
+    }
+
+    window.addEventListener('DOMContentLoaded', initAutoplayOnInteraction);
+
+    // Page navigation function with page-turn animation
+    function goToPage(targetPage) {
+      if (targetPage === currentPage || targetPage < 0 || targetPage >= totalPages) return;
+
+      const currentEl = document.getElementById(`page-${currentPage}`);
+      const targetEl = document.getElementById(`page-${targetPage}`);
+
+      // Apply flip direction based on page order
+      if (targetPage > currentPage) {
+        currentEl.className = "book-page page-turn-left absolute w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-4";
+        targetEl.className = "book-page page-active w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-4";
+      } else {
+        currentEl.className = "book-page page-turn-right absolute w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-4";
+        targetEl.className = "book-page page-active w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-4";
+      }
+
+      currentPage = targetPage;
+      updateNavButtons();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Update active nav tab styling
+    function updateNavButtons() {
+      for (let i = 0; i < totalPages; i++) {
+        const btn = document.getElementById(`nav-btn-${i}`);
+        if (i === currentPage) {
+          btn.className = "nav-tab text-xs sm:text-sm px-3 py-1.5 rounded-full transition-all duration-300 font-medium text-mucha-gold border border-mucha-gold/40 bg-mucha-gold/10";
+        } else {
+          btn.className = "nav-tab text-xs sm:text-sm px-3 py-1.5 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold";
+        }
+      }
+    }
+
+    // Countdown Timer logic to 2027-01-16 17:30:00
+    const weddingDate = new Date('2027-01-16T17:30:00+08:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) {
+        document.getElementById("cd-days").innerText = "00";
+        document.getElementById("cd-hours").innerText = "00";
+        document.getElementById("cd-mins").innerText = "00";
+        document.getElementById("cd-secs").innerText = "00";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("cd-days").innerText = days < 10 ? "0" + days : days;
+      document.getElementById("cd-hours").innerText = hours < 10 ? "0" + hours : hours;
+      document.getElementById("cd-mins").innerText = minutes < 10 ? "0" + minutes : minutes;
+      document.getElementById("cd-secs").innerText = seconds < 10 ? "0" + seconds : seconds;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Toast Notification helper
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      toastMsg.innerText = msg;
+
+      toast.classList.remove('translate-y-16', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-16', 'opacity-0');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
