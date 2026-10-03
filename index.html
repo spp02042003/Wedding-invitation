@@ -557,23 +557,25 @@
     // Global user interaction handler to unblock audio on mobile and desktop browsers
     function initAutoplayOnInteraction() {
       const handleInteraction = () => {
-        if (!userHasInteracted) {
-          userHasInteracted = true;
-          if (player && typeof player.playVideo === 'function' && !isAudioPlaying) {
-            player.playVideo();
-          }
+        if (player && typeof player.playVideo === 'function' && !isAudioPlaying) {
+          player.playVideo();
         }
       };
 
-      document.addEventListener('click', handleInteraction, { once: true });
-      document.addEventListener('touchstart', handleInteraction, { once: true });
-      document.addEventListener('scroll', handleInteraction, { once: true });
+      ['click', 'touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(evt => {
+        document.addEventListener(evt, handleInteraction, { capture: true });
+      });
     }
 
     window.addEventListener('DOMContentLoaded', initAutoplayOnInteraction);
 
     // Page navigation function with page-turn animation
     function goToPage(targetPage) {
+      // Trigger audio playback automatically on page change if not playing yet
+      if (player && typeof player.playVideo === 'function' && !isAudioPlaying) {
+        player.playVideo();
+      }
+
       if (targetPage === currentPage || targetPage < 0 || targetPage >= totalPages) return;
 
       const currentEl = document.getElementById(`page-${currentPage}`);
