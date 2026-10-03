@@ -386,33 +386,33 @@
           </div>
         </div>
 
-        <!-- Venue Details & Map Side-by-Side -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 my-1 sm:my-1.5 w-full text-left font-serif items-stretch px-1">
+        <!-- Venue Details & Map Side-by-Side (Forced 2 columns even on mobile) -->
+        <div class="grid grid-cols-2 gap-1.5 sm:gap-3 my-1 sm:my-1.5 w-full text-left font-serif items-stretch px-1">
           <!-- Left: Venue Details -->
-          <div class="space-y-1.5 bg-white/70 p-2.5 sm:p-3 rounded-lg border border-mucha-gold/30 text-xs sm:text-sm flex flex-col justify-center">
-            <div class="flex items-start space-x-2">
-              <i class="fa-regular fa-clock text-mucha-gold text-sm sm:text-base mt-0.5 shrink-0"></i>
+          <div class="space-y-1 sm:space-y-1.5 bg-white/70 p-1.5 sm:p-3 rounded-lg border border-mucha-gold/30 text-[10px] sm:text-sm flex flex-col justify-center">
+            <div class="flex items-start space-x-1 sm:space-x-2">
+              <i class="fa-regular fa-clock text-mucha-gold text-xs sm:text-base mt-0.5 shrink-0"></i>
               <div>
-                <p class="font-bold text-mucha-dark">日期時間：</p>
-                <p class="text-mucha-dark/90 font-medium">2027年1月16日 下午5:30入席</p>
+                <p class="font-bold text-mucha-dark text-[10px] sm:text-xs">日期時間：</p>
+                <p class="text-mucha-dark/90 font-medium text-[10px] sm:text-xs leading-tight">2027年1月16日 下午5:30入席</p>
               </div>
             </div>
-            <div class="flex items-start space-x-2">
-              <i class="fa-solid fa-hotel text-mucha-gold text-sm sm:text-base mt-0.5 shrink-0"></i>
+            <div class="flex items-start space-x-1 sm:space-x-2">
+              <i class="fa-solid fa-hotel text-mucha-gold text-xs sm:text-base mt-0.5 shrink-0"></i>
               <div>
-                <p class="font-bold text-mucha-dark">婚禮地點：</p>
-                <p class="text-mucha-darkgold font-bold">高雄日航酒店</p>
-                <p class="text-[11px] sm:text-xs text-mucha-dark/75 leading-tight mt-0.5">806 高雄市前鎮區林森四路268號</p>
+                <p class="font-bold text-mucha-dark text-[10px] sm:text-xs">婚禮地點：</p>
+                <p class="text-mucha-darkgold font-bold text-[11px] sm:text-sm leading-tight">高雄日航酒店</p>
+                <p class="text-[9px] sm:text-xs text-mucha-dark/75 leading-tight mt-0.5">806 高雄市前鎮區林森四路268號</p>
               </div>
             </div>
           </div>
 
           <!-- Right: Google Maps Frame -->
-          <div class="rounded-lg overflow-hidden border-2 border-mucha-gold shadow-sm min-h-[110px] sm:min-h-[140px] relative bg-gray-100 flex">
+          <div class="rounded-lg overflow-hidden border-2 border-mucha-gold shadow-sm min-h-[100px] sm:min-h-[140px] relative bg-gray-100 flex">
             <iframe 
               title="高雄日航酒店地圖"
               src="https://maps.google.com/maps?q=%E9%AB%98%E9%9B%84%E6%97%A5%E8%88%AA%E9%85%92%E5%BA%97&t=&z=16&ie=UTF8&iwloc=&output=embed"
-              class="w-full h-full min-h-[110px] sm:min-h-[140px] border-0" 
+              class="w-full h-full min-h-[100px] sm:min-h-[140px] border-0" 
               allowfullscreen="" 
               loading="lazy">
             </iframe>
