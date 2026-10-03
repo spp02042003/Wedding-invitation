@@ -401,7 +401,7 @@
               <i class="fa-solid fa-hotel text-mucha-gold text-xs sm:text-base mt-0.5 shrink-0"></i>
               <div>
                 <p class="font-bold text-mucha-dark text-[10px] sm:text-xs">婚禮地點：</p>
-                <p class="text-mucha-darkgold font-bold text-[11px] sm:text-sm leading-tight">高雄日航酒店</p>
+                <p class="text-mucha-darkgold font-bold text-[11px] sm:text-sm leading-tight">高雄日航酒店 三樓宴會廳</p>
                 <p class="text-[9px] sm:text-xs text-mucha-dark/75 leading-tight mt-0.5">806 高雄市前鎮區林森四路268號</p>
               </div>
             </div>
@@ -600,20 +600,34 @@
     }
 
     /**
-     * Countdown Timer Logic
+     * Countdown Timer Logic (Cross-platform & Mobile WebView Safe)
      */
     function initCountdown() {
-      const targetDate = new Date('2027-01-16T17:30:00+08:00').getTime();
+      // 2027-01-16 17:30:00 UTC+8 equals Date.UTC(2027, 0, 16, 9, 30, 0)
+      // Using explicit numbers avoids string parsing NaN errors on iOS Safari / Line / IG in-app browsers
+      const targetDate = new Date(Date.UTC(2027, 0, 16, 9, 30, 0)).getTime();
+
+      function formatNum(num) {
+        if (isNaN(num) || num < 0) return "00";
+        return num < 10 ? '0' + num : String(num);
+      }
 
       function updateTimer() {
         const now = new Date().getTime();
         const difference = targetDate - now;
 
-        if (difference <= 0) {
-          document.getElementById('cd-days').innerText = "00";
-          document.getElementById('cd-hours').innerText = "00";
-          document.getElementById('cd-mins').innerText = "00";
-          document.getElementById('cd-secs').innerText = "00";
+        const dElem = document.getElementById('cd-days');
+        const hElem = document.getElementById('cd-hours');
+        const mElem = document.getElementById('cd-mins');
+        const sElem = document.getElementById('cd-secs');
+
+        if (!dElem || !hElem || !mElem || !sElem) return;
+
+        if (isNaN(difference) || difference <= 0) {
+          dElem.innerText = "00";
+          hElem.innerText = "00";
+          mElem.innerText = "00";
+          sElem.innerText = "00";
           return;
         }
 
@@ -622,19 +636,16 @@
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        const dElem = document.getElementById('cd-days');
-        const hElem = document.getElementById('cd-hours');
-        const mElem = document.getElementById('cd-mins');
-        const sElem = document.getElementById('cd-secs');
-
-        if (dElem) dElem.innerText = String(days).padStart(2, '0');
-        if (hElem) hElem.innerText = String(hours).padStart(2, '0');
-        if (mElem) mElem.innerText = String(minutes).padStart(2, '0');
-        if (sElem) sElem.innerText = String(seconds).padStart(2, '0');
+        dElem.innerText = formatNum(days);
+        hElem.innerText = formatNum(hours);
+        mElem.innerText = formatNum(minutes);
+        sElem.innerText = formatNum(seconds);
       }
 
       updateTimer();
-      setInterval(updateTimer, 1000);
+      if (!window.countdownInterval) {
+        window.countdownInterval = setInterval(updateTimer, 1000);
+      }
     }
 
     // Attach global user interaction listeners
@@ -642,7 +653,17 @@
     window.addEventListener('touchstart', startAudioOnInteraction, { once: true });
     window.addEventListener('scroll', startAudioOnInteraction, { once: true });
 
-    // Initialize on page load
+    // Multi-stage safe initialization for mobile WebViews
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        initCountdown();
+        updateNavButtons();
+      });
+    } else {
+      initCountdown();
+      updateNavButtons();
+    }
+
     window.onload = function() {
       initCountdown();
       updateNavButtons();
