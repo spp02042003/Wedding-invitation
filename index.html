@@ -140,6 +140,15 @@
       background: #C5A059;
       border-radius: 3px;
     }
+
+    /* Hide scrollbar for clean mobile nav scrolling if needed */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
   </style>
 </head>
 
@@ -147,31 +156,30 @@
 
   <!-- Top Navigation Bar -->
   <header class="fixed top-0 left-0 right-0 z-50 nav-glass">
-    <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+    <div class="max-w-4xl mx-auto px-2 sm:px-4 py-2 sm:py-3 flex justify-between items-center gap-1 sm:gap-3">
       <!-- Monogram Logo -->
-      <div class="flex items-center space-x-2">
-        <span class="font-cinzel text-mucha-gold font-bold text-xl tracking-wider">M & H</span>
-        <span class="text-xs text-mucha-gold/70 hidden sm:inline-block font-serif">| 張家銘 ❤ 柯驊珈</span>
+      <div class="flex items-center shrink-0">
+        <span class="font-serif text-mucha-gold font-bold text-xs sm:text-sm tracking-wider whitespace-nowrap">家＋珈＝HOME</span>
       </div>
 
       <!-- Navigation Tabs -->
-      <nav class="flex space-x-1 sm:space-x-3">
-        <button onclick="goToPage(0)" id="nav-btn-0" class="nav-tab text-xs sm:text-sm px-3 py-1.5 rounded-full transition-all duration-300 font-medium text-mucha-gold border border-mucha-gold/40 bg-mucha-gold/10">
+      <nav class="flex items-center space-x-1 sm:space-x-2 overflow-x-auto no-scrollbar py-0.5">
+        <button onclick="goToPage(0)" id="nav-btn-0" class="shrink-0 nav-tab text-[11px] sm:text-xs px-2 sm:px-3 py-1 rounded-full transition-all duration-300 font-medium text-mucha-gold border border-mucha-gold/40 bg-mucha-gold/10 whitespace-nowrap">
           <i class="fa-solid fa-envelope mr-1"></i>鈞啟
         </button>
-        <button onclick="goToPage(1)" id="nav-btn-1" class="nav-tab text-xs sm:text-sm px-3 py-1.5 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold">
+        <button onclick="goToPage(1)" id="nav-btn-1" class="shrink-0 nav-tab text-[11px] sm:text-xs px-2 sm:px-3 py-1 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold whitespace-nowrap">
           <i class="fa-solid fa-scroll mr-1"></i>邀請
         </button>
-        <button onclick="goToPage(2)" id="nav-btn-2" class="nav-tab text-xs sm:text-sm px-3 py-1.5 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold">
+        <button onclick="goToPage(2)" id="nav-btn-2" class="shrink-0 nav-tab text-[11px] sm:text-xs px-2 sm:px-3 py-1 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold whitespace-nowrap">
           <i class="fa-solid fa-location-dot mr-1"></i>資訊
         </button>
-        <button onclick="goToPage(3)" id="nav-btn-3" class="nav-tab text-xs sm:text-sm px-3 py-1.5 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold">
+        <button onclick="goToPage(3)" id="nav-btn-3" class="shrink-0 nav-tab text-[11px] sm:text-xs px-2 sm:px-3 py-1 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold whitespace-nowrap">
           <i class="fa-solid fa-heart mr-1"></i>歡迎
         </button>
       </nav>
       <!-- Music Toggle Button & Audio Player -->
-      <button id="music-btn" onclick="toggleAudio()" title="播放/暫停背景音樂" class="w-9 h-9 rounded-full border border-mucha-gold/50 flex items-center justify-center text-mucha-gold hover:bg-mucha-gold/20 transition-all">
-        <i class="fa-solid fa-music text-sm" id="music-icon"></i>
+      <button id="music-btn" onclick="toggleAudio()" title="播放/暫停背景音樂" class="shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-mucha-gold/50 flex items-center justify-center text-mucha-gold hover:bg-mucha-gold/20 transition-all">
+        <i class="fa-solid fa-music text-xs sm:text-sm" id="music-icon"></i>
       </button>
       <!-- Multi-source audio element with high-reliability classical piano track (Non-Wikipedia sources) -->
       <audio id="bg-music" loop playsinline preload="auto">
@@ -638,9 +646,9 @@
       for (let i = 0; i < totalPages; i++) {
         const btn = document.getElementById(`nav-btn-${i}`);
         if (i === currentPage) {
-          btn.className = "nav-tab text-xs sm:text-sm px-2.5 sm:px-3 py-1.5 rounded-full transition-all duration-300 font-medium text-mucha-gold border border-mucha-gold/40 bg-mucha-gold/10";
+          btn.className = "shrink-0 nav-tab text-[11px] sm:text-xs px-2 sm:px-3 py-1 rounded-full transition-all duration-300 font-medium text-mucha-gold border border-mucha-gold/40 bg-mucha-gold/10 whitespace-nowrap";
         } else {
-          btn.className = "nav-tab text-xs sm:text-sm px-2.5 sm:px-3 py-1.5 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold";
+          btn.className = "shrink-0 nav-tab text-[11px] sm:text-xs px-2 sm:px-3 py-1 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold whitespace-nowrap";
         }
       }
     }
