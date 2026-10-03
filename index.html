@@ -419,7 +419,7 @@
           </a>
 
           <button onclick="goToPage(3)" class="btn-mucha px-3 sm:px-4 py-1.5 text-xs sm:text-sm rounded-full font-medium">
-            歡迎專區 <i class="fa-solid fa-arrow-right ml-1"></i>
+            Welcome <i class="fa-solid fa-arrow-right ml-1"></i>
           </button>
         </div>
       </div>
@@ -498,71 +498,12 @@
     let currentPage = 0;
     const totalPages = 4;
     let isAudioPlaying = false;
-    let isUsingSynth = false;
     const bgAudio = document.getElementById('bg-music');
 
-    // Web Audio API Procedural Synth Fallback for guaranteed sound play
-    let audioCtx = null;
-    let synthTimer = null;
-    // Pachelbel's Canon in D (帕赫貝爾《卡農》) 經典婚禮浪漫旋律
-    const synthNotes = [
-      587.33, 554.37, 493.88, 440.00, 392.00, 369.99, 392.00, 440.00,
-      739.99, 659.25, 587.33, 554.37, 493.88, 440.00, 493.88, 554.37
-    ];
-    let synthIdx = 0;
-
-    function playSynthNote() {
-      if (!isAudioPlaying) return;
-      try {
-        if (!audioCtx) {
-          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        }
-        if (audioCtx.state === 'suspended') {
-          audioCtx.resume();
-        }
-        const freq = synthNotes[synthIdx % synthNotes.length];
-        synthIdx++;
-
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-
-        gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.07, audioCtx.currentTime + 0.08);
-        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.4);
-
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-
-        osc.start();
-        osc.stop(audioCtx.currentTime + 1.45);
-      } catch (e) {
-        console.error("Synth playback error:", e);
-      }
-    }
-
-    function startSynth() {
-      isUsingSynth = true;
-      if (synthTimer) clearInterval(synthTimer);
-      playSynthNote();
-      synthTimer = setInterval(playSynthNote, 480);
-    }
-
-    function stopSynth() {
-      if (synthTimer) {
-        clearInterval(synthTimer);
-        synthTimer = null;
-      }
-      isUsingSynth = false;
-    }
-
-    // Toggle Audio function with fallback handling
+    // Toggle Audio function (直接播放原本背景音樂)
     function toggleAudio() {
       if (isAudioPlaying) {
         if (bgAudio) bgAudio.pause();
-        stopSynth();
         isAudioPlaying = false;
         updateMusicUI(false);
         showToast("背景音樂已暫停");
@@ -573,17 +514,8 @@
             updateMusicUI(true);
             showToast("♪ 正在播放：舒緩古典樂《Gymnopédie No. 1》");
           }).catch(err => {
-            console.log("Audio file play failed, launching Web Audio Synth fallback:", err);
-            isAudioPlaying = true;
-            startSynth();
-            updateMusicUI(true);
-            showToast("♪ 正在播放：帕赫貝爾《卡農》浪漫八音盒");
+            console.log("Audio play error:", err);
           });
-        } else {
-          isAudioPlaying = true;
-          startSynth();
-          updateMusicUI(true);
-          showToast("♪ 正在播放：帕赫貝爾《卡農》浪漫八音盒");
         }
       }
     }
@@ -598,11 +530,17 @@
       }
     }
 
-    // Try autoplay and bind gesture listener to unblock browser autoplay restrictions
+    // 監聽使用者首次互動（點擊、觸控、滑動等），直接觸發原音樂播放
     function initAutoplayOnInteraction() {
       const handleInteraction = () => {
-        if (!isAudioPlaying) {
-          toggleAudio();
+        if (!isAudioPlaying && bgAudio) {
+          bgAudio.play().then(() => {
+            isAudioPlaying = true;
+            updateMusicUI(true);
+            showToast("♪ 正在播放：舒緩古典樂《Gymnopédie No. 1》");
+          }).catch(err => {
+            console.log("Autoplay on interaction prevented:", err);
+          });
         }
         ['click', 'touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(evt => {
           document.removeEventListener(evt, handleInteraction, { capture: true });
