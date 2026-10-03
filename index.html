@@ -166,17 +166,17 @@
           <i class="fa-solid fa-location-dot mr-1"></i>資訊
         </button>
         <button onclick="goToPage(3)" id="nav-btn-3" class="nav-tab text-xs sm:text-sm px-3 py-1.5 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold">
-          <i class="fa-solid fa-heart mr-1"></i>祝福
+          <i class="fa-solid fa-heart mr-1"></i>歡迎
         </button>
       </nav>
       <!-- Music Toggle Button & Audio Player -->
       <button id="music-btn" onclick="toggleAudio()" title="播放/暫停背景音樂" class="w-9 h-9 rounded-full border border-mucha-gold/50 flex items-center justify-center text-mucha-gold hover:bg-mucha-gold/20 transition-all">
         <i class="fa-solid fa-music text-sm" id="music-icon"></i>
       </button>
-      <!-- Multi-source audio element with Wikimedia high-reliability classical piano track -->
+      <!-- Multi-source audio element with high-reliability classical piano track (Non-Wikipedia sources) -->
       <audio id="bg-music" loop playsinline preload="auto">
-        <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/6/6c/Johann_Sebastian_Bach_-_Prelude_in_C_Major_BWV_846.ogg/Johann_Sebastian_Bach_-_Prelude_in_C_Major_BWV_846.ogg.mp3" type="audio/mpeg">
-        <source src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Johann_Sebastian_Bach_-_Prelude_in_C_Major_BWV_846.ogg" type="audio/ogg">
+        <source src="https://incompetech.com/music/royalty-free/mp3-royaltyfree/Gymnopedie%20No%201.mp3" type="audio/mpeg">
+        <source src="https://ia800501.us.archive.org/33/items/Gymnopedie_201309/Gymnop%c3%a9die%20No.%201.mp3" type="audio/mpeg">
       </audio>
     </div>
   </header>
@@ -411,13 +411,13 @@
           </a>
 
           <button onclick="goToPage(3)" class="btn-mucha px-3 sm:px-4 py-1.5 text-xs sm:text-sm rounded-full font-medium">
-            祝福專區 <i class="fa-solid fa-arrow-right ml-1"></i>
+            歡迎專區 <i class="fa-solid fa-arrow-right ml-1"></i>
           </button>
         </div>
       </div>
     </section>
 
-    <!-- PAGE 4: 祝福 (Blessings) -->
+    <!-- PAGE 4: 歡迎 (Welcome) -->
     <section id="page-3" class="book-page page-turn-right absolute w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-2 sm:my-4">
       <div class="mucha-card mucha-border p-4 sm:p-8 relative min-h-[520px] sm:min-h-[620px] flex flex-col justify-between text-center">
         <!-- Corner Ornaments -->
@@ -428,10 +428,10 @@
 
         <!-- Title -->
         <div class="mt-1">
-          <p class="font-cinzel tracking-[0.2em] sm:tracking-[0.25em] text-[10px] sm:text-xs text-mucha-bronze uppercase">Wedding Wishes</p>
+          <p class="font-cinzel tracking-[0.2em] sm:tracking-[0.25em] text-[10px] sm:text-xs text-mucha-bronze uppercase">Wedding Welcome</p>
           <div class="flex items-center justify-center space-x-2 my-0.5 sm:my-1">
             <span class="h-[1px] w-8 sm:w-10 bg-mucha-gold"></span>
-            <span class="text-mucha-gold text-lg sm:text-xl font-bold font-serif">✦ 祝福 ✦</span>
+            <span class="text-mucha-gold text-lg sm:text-xl font-bold font-serif">✦ 歡迎 ✦</span>
             <span class="h-[1px] w-8 sm:w-10 bg-mucha-gold"></span>
           </div>
         </div>
@@ -456,7 +456,7 @@
         <!-- Welcoming Sentence -->
         <div class="my-2 sm:my-4 px-3 sm:px-4 py-2.5 sm:py-3 bg-mucha-cream/80 rounded-lg border border-mucha-gold/20 font-serif">
           <p class="text-sm sm:text-lg text-mucha-dark font-bold leading-relaxed tracking-wide">
-            誠摯歡迎您的光臨與祝福，期待與您一同見證我們的幸福時刻！
+            好久不見，婚禮見！
           </p>
         </div>
 
@@ -496,7 +496,11 @@
     // Web Audio API Procedural Synth Fallback for guaranteed sound play
     let audioCtx = null;
     let synthTimer = null;
-    const synthNotes = [293.66, 369.99, 440.00, 554.37, 440.00, 369.99, 329.63, 392.00, 493.88, 392.00, 293.66, 369.99];
+    // Pachelbel's Canon in D (帕赫貝爾《卡農》) 經典婚禮浪漫旋律
+    const synthNotes = [
+      587.33, 554.37, 493.88, 440.00, 392.00, 369.99, 392.00, 440.00,
+      739.99, 659.25, 587.33, 554.37, 493.88, 440.00, 493.88, 554.37
+    ];
     let synthIdx = 0;
 
     function playSynthNote() {
@@ -518,14 +522,14 @@
         osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
 
         gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.1, audioCtx.currentTime + 0.05);
-        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.1);
+        gain.gain.exponentialRampToValueAtTime(0.07, audioCtx.currentTime + 0.08);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.4);
 
         osc.connect(gain);
         gain.connect(audioCtx.destination);
 
         osc.start();
-        osc.stop(audioCtx.currentTime + 1.15);
+        osc.stop(audioCtx.currentTime + 1.45);
       } catch (e) {
         console.error("Synth playback error:", e);
       }
@@ -535,7 +539,7 @@
       isUsingSynth = true;
       if (synthTimer) clearInterval(synthTimer);
       playSynthNote();
-      synthTimer = setInterval(playSynthNote, 550);
+      synthTimer = setInterval(playSynthNote, 480);
     }
 
     function stopSynth() {
@@ -559,19 +563,19 @@
           bgAudio.play().then(() => {
             isAudioPlaying = true;
             updateMusicUI(true);
-            showToast("♪ 正在播放：溫暖古典樂《Prelude in C Major》");
+            showToast("♪ 正在播放：舒緩古典樂《Gymnopédie No. 1》");
           }).catch(err => {
             console.log("Audio file play failed, launching Web Audio Synth fallback:", err);
             isAudioPlaying = true;
             startSynth();
             updateMusicUI(true);
-            showToast("♪ 正在播放：浪漫婚禮浪漫八音盒");
+            showToast("♪ 正在播放：帕赫貝爾《卡農》浪漫八音盒");
           });
         } else {
           isAudioPlaying = true;
           startSynth();
           updateMusicUI(true);
-          showToast("♪ 正在播放：浪漫婚禮浪漫八音盒");
+          showToast("♪ 正在播放：帕赫貝爾《卡農》浪漫八音盒");
         }
       }
     }
