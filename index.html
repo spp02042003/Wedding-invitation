@@ -173,17 +173,17 @@
       <button id="music-btn" onclick="toggleAudio()" title="播放/暫停背景音樂" class="w-9 h-9 rounded-full border border-mucha-gold/50 flex items-center justify-center text-mucha-gold hover:bg-mucha-gold/20 transition-all">
         <i class="fa-solid fa-music text-sm" id="music-icon"></i>
       </button>
-      <!-- Hidden YouTube Player Container -->
-      <div id="yt-player-container" class="absolute w-1 h-1 overflow-hidden opacity-0 pointer-events-none -z-50"></div>
+      <!-- HTML5 Audio Element for 100% Ad-Free Gentle Warm Classical Piano Music -->
+      <audio id="bg-music" loop playsinline preload="auto" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=piano-moment-111728.mp3"></audio>
     </div>
   </header>
 
   <!-- Main Flip Container -->
-  <main class="w-full max-w-2xl px-3 sm:px-4 pt-20 pb-16 flex-grow flex items-center justify-center book-container my-auto">
+  <main class="w-full max-w-2xl px-2 sm:px-4 pt-16 sm:pt-20 pb-12 sm:pb-16 flex-grow flex items-center justify-center book-container my-auto">
     
     <!-- PAGE 1: 鈞啟 (Cover / Opening) -->
-    <section id="page-0" class="book-page page-active w-full bg-white rounded-xl shadow-2xl overflow-hidden my-4 relative">
-      <div class="mucha-card mucha-border p-3 sm:p-5 relative min-h-[640px] flex flex-col justify-between items-center text-center">
+    <section id="page-0" class="book-page page-active w-full bg-white rounded-xl shadow-2xl overflow-hidden my-2 sm:my-4 relative">
+      <div class="mucha-card mucha-border p-3 sm:p-5 relative min-h-[520px] sm:min-h-[620px] flex flex-col justify-between items-center text-center">
         <!-- Corner Ornaments -->
         <div class="corner-ornament corner-tl"></div>
         <div class="corner-ornament corner-tr"></div>
@@ -191,20 +191,20 @@
         <div class="corner-ornament corner-br"></div>
 
         <!-- Decorative Top Header -->
-        <div class="mt-2 mb-3">
-          <p class="font-cinzel tracking-[0.3em] text-xs text-mucha-bronze uppercase">Wedding Invitation</p>
+        <div class="mt-1 sm:mt-2 mb-2 sm:mb-3">
+          <p class="font-cinzel tracking-[0.2em] sm:tracking-[0.3em] text-[10px] sm:text-xs text-mucha-bronze uppercase">Wedding Invitation</p>
           <div class="flex items-center justify-center space-x-2 my-1">
-            <span class="h-[1px] w-12 bg-mucha-gold"></span>
-            <span class="text-mucha-gold text-lg font-serif">✦ 鈞啟 ✦</span>
-            <span class="h-[1px] w-12 bg-mucha-gold"></span>
+            <span class="h-[1px] w-8 sm:w-12 bg-mucha-gold"></span>
+            <span class="text-mucha-gold text-base sm:text-lg font-serif">✦ 鈞啟 ✦</span>
+            <span class="h-[1px] w-8 sm:w-12 bg-mucha-gold"></span>
           </div>
-          <h1 class="text-2xl sm:text-3xl font-bold text-mucha-dark tracking-widest font-serif mt-1">
-            張家銘 <span class="text-mucha-gold font-cursive text-3xl font-normal">&</span> 柯驊珈
+          <h1 class="text-xl sm:text-3xl font-bold text-mucha-dark tracking-wider sm:tracking-widest font-serif mt-1">
+            張家銘 <span class="text-mucha-gold font-cursive text-2xl sm:text-3xl font-normal">&</span> 柯驊珈
           </h1>
         </div>
 
         <!-- Mucha Cover Illustration Image Frame -->
-        <div class="relative my-2 w-full max-w-sm rounded-t-full border-4 border-mucha-gold p-1 shadow-lg bg-mucha-cream">
+        <div class="relative my-1 sm:my-2 w-full max-w-[260px] sm:max-w-sm rounded-t-full border-2 sm:border-4 border-mucha-gold p-1 shadow-lg bg-mucha-cream">
           <div class="overflow-hidden rounded-t-full border border-mucha-bronze/40 relative group">
             <img 
               src="https://i.postimg.cc/9fCBPnX9/01-A3-hi-res-grb.jpg" 
@@ -217,17 +217,17 @@
         </div>
 
         <!-- Cover Text & Action Button -->
-        <div class="my-3 z-10 font-serif">
-          <p class="text-sm sm:text-base text-mucha-dark/90 font-medium tracking-wide">
+        <div class="my-2 sm:my-3 z-10 font-serif px-2">
+          <p class="text-xs sm:text-base text-mucha-dark/90 font-medium tracking-wide">
             誠摯邀請您 陪伴我們開啟新的人生篇章
           </p>
-          <p class="font-cinzel text-xs text-mucha-bronze tracking-widest mt-1">
+          <p class="font-cinzel text-[10px] sm:text-xs text-mucha-bronze tracking-wider sm:tracking-widest mt-0.5 sm:mt-1">
             SATURDAY, JANUARY 16, 2027
           </p>
         </div>
 
-        <div class="mb-2">
-          <button onclick="goToPage(1)" class="btn-mucha px-8 py-2.5 rounded-full font-medium text-sm sm:text-base flex items-center space-x-2 mx-auto font-serif">
+        <div class="mb-1 sm:mb-2">
+          <button onclick="goToPage(1)" class="btn-mucha px-6 sm:px-8 py-2 sm:py-2.5 rounded-full font-medium text-xs sm:text-base flex items-center space-x-2 mx-auto font-serif">
             <span>開啟喜帖</span>
             <i class="fa-solid fa-arrow-right text-xs"></i>
           </button>
@@ -236,8 +236,8 @@
     </section>
 
     <!-- PAGE 2: 邀請 (Invitation) -->
-    <section id="page-1" class="book-page page-turn-right absolute w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-4">
-      <div class="mucha-card mucha-border p-5 sm:p-8 relative min-h-[640px] flex flex-col justify-between items-center text-center">
+    <section id="page-1" class="book-page page-turn-right absolute w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-2 sm:my-4">
+      <div class="mucha-card mucha-border p-4 sm:p-7 relative min-h-[520px] sm:min-h-[620px] flex flex-col justify-between items-center text-center">
         <!-- Corner Ornaments -->
         <div class="corner-ornament corner-tl"></div>
         <div class="corner-ornament corner-tr"></div>
@@ -245,30 +245,30 @@
         <div class="corner-ornament corner-br"></div>
 
         <!-- Header -->
-        <div class="mt-2">
-          <p class="font-cinzel tracking-[0.25em] text-xs text-mucha-bronze uppercase">Honored Guests</p>
-          <div class="flex items-center justify-center space-x-2 my-1">
-            <span class="h-[1px] w-10 bg-mucha-gold"></span>
-            <span class="text-mucha-gold text-lg font-semibold font-serif">✦ 誠摯邀請 ✦</span>
-            <span class="h-[1px] w-10 bg-mucha-gold"></span>
+        <div class="mt-1 sm:mt-2">
+          <p class="font-cinzel tracking-[0.2em] sm:tracking-[0.25em] text-[10px] sm:text-xs text-mucha-bronze uppercase">Honored Guests</p>
+          <div class="flex items-center justify-center space-x-2 my-0.5 sm:my-1">
+            <span class="h-[1px] w-8 sm:w-10 bg-mucha-gold"></span>
+            <span class="text-mucha-gold text-base sm:text-lg font-semibold font-serif">✦ 誠摯邀請 ✦</span>
+            <span class="h-[1px] w-8 sm:w-10 bg-mucha-gold"></span>
           </div>
         </div>
 
         <!-- Invitation Message -->
-        <div class="my-4 px-2 sm:px-6 text-mucha-dark/90 font-serif space-y-3">
-          <p class="text-lg sm:text-xl text-mucha-darkgold font-bold tracking-wide">
+        <div class="my-2 sm:my-3 px-1 sm:px-6 text-mucha-dark/90 font-serif space-y-1 sm:space-y-2">
+          <p class="text-sm sm:text-xl text-mucha-darkgold font-bold tracking-wide">
             謹定於 2027年1月16日（星期六）
           </p>
-          <p class="text-xl sm:text-2xl text-mucha-dark font-bold tracking-widest py-1">
+          <p class="text-base sm:text-2xl text-mucha-dark font-bold tracking-wider py-0.5 sm:py-1">
             為 張家銘 與 柯驊珈
           </p>
-          <p class="text-lg sm:text-xl text-mucha-darkgold font-bold tracking-wide">
+          <p class="text-sm sm:text-xl text-mucha-darkgold font-bold tracking-wide">
             舉行結婚囍宴
           </p>
         </div>
 
         <!-- Invitation Photo -->
-        <div class="relative my-2 mx-auto w-full max-w-xs sm:max-w-sm rounded-lg overflow-hidden shadow-md border border-mucha-gold/30">
+        <div class="relative my-1.5 sm:my-2 mx-auto w-full max-w-[220px] sm:max-w-sm rounded-lg overflow-hidden shadow-md border border-mucha-gold/30">
           <img 
             src="https://i.postimg.cc/KjW6T6df/MIJ01629.jpg" 
             alt="張家銘與柯驊珈婚紗照" 
@@ -277,38 +277,38 @@
           />
         </div>
 
-        <!-- Family Names Grid (Borderless) -->
-        <div class="w-full my-3 p-2 text-center font-serif">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center text-base">
+        <!-- Family Names Grid (Seamless & Clean Mobile View) -->
+        <div class="w-full my-2 p-1 sm:p-2 text-center font-serif">
+          <div class="grid grid-cols-2 gap-2 sm:gap-4 text-center text-xs sm:text-base">
             <!-- Groom's Side -->
-            <div class="space-y-1.5 py-1">
-              <div class="text-sm text-mucha-gold font-bold">
+            <div class="space-y-1 py-0.5">
+              <div class="text-xs sm:text-sm text-mucha-gold font-bold">
                 <span>男方主婚人</span>
               </div>
-              <p class="font-bold text-mucha-dark text-lg">新郎：張家銘</p>
-              <p class="text-sm sm:text-base text-mucha-dark/85">父親：張仁杰</p>
-              <p class="text-sm sm:text-base text-mucha-dark/85">母親：劉怡君</p>
+              <p class="font-bold text-mucha-dark text-sm sm:text-lg whitespace-nowrap">新郎：張家銘</p>
+              <p class="text-xs sm:text-base text-mucha-dark/85 whitespace-nowrap">父親：張仁杰</p>
+              <p class="text-xs sm:text-base text-mucha-dark/85 whitespace-nowrap">母親：劉怡君</p>
             </div>
 
             <!-- Bride's Side -->
-            <div class="space-y-1.5 py-1">
-              <div class="text-sm text-mucha-gold font-bold">
+            <div class="space-y-1 py-0.5">
+              <div class="text-xs sm:text-sm text-mucha-gold font-bold">
                 <span>女方主婚人</span>
               </div>
-              <p class="font-bold text-mucha-dark text-lg">新娘：柯驊珈</p>
-              <p class="text-sm sm:text-base text-mucha-dark/85">父親：柯俊誠</p>
-              <p class="text-sm sm:text-base text-mucha-dark/85">母親：蔡麗卿</p>
-              <p class="text-sm sm:text-base text-mucha-dark/85">祖母：吳美枝</p>
+              <p class="font-bold text-mucha-dark text-sm sm:text-lg whitespace-nowrap">新娘：柯驊珈</p>
+              <p class="text-xs sm:text-base text-mucha-dark/85 whitespace-nowrap">父親：柯俊誠</p>
+              <p class="text-xs sm:text-base text-mucha-dark/85 whitespace-nowrap">母親：蔡麗卿</p>
+              <p class="text-xs sm:text-base text-mucha-dark/85 whitespace-nowrap">祖母：吳美枝</p>
             </div>
           </div>
         </div>
 
         <!-- Navigation buttons -->
-        <div class="flex justify-between w-full mt-2 pt-2 border-t border-mucha-gold/30 font-serif">
-          <button onclick="goToPage(0)" class="px-5 py-2 text-xs sm:text-sm rounded-full border border-mucha-gold text-mucha-darkgold hover:bg-mucha-gold/10 transition-all">
+        <div class="flex justify-between w-full mt-1 sm:mt-2 pt-2 border-t border-mucha-gold/30 font-serif">
+          <button onclick="goToPage(0)" class="px-4 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm rounded-full border border-mucha-gold text-mucha-darkgold hover:bg-mucha-gold/10 transition-all">
             <i class="fa-solid fa-arrow-left mr-1"></i> 上一頁
           </button>
-          <button onclick="goToPage(2)" class="btn-mucha px-6 py-2 text-xs sm:text-sm rounded-full font-medium">
+          <button onclick="goToPage(2)" class="btn-mucha px-5 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm rounded-full font-medium">
             婚禮資訊 <i class="fa-solid fa-arrow-right ml-1"></i>
           </button>
         </div>
@@ -316,8 +316,8 @@
     </section>
 
     <!-- PAGE 3: 資訊 (Info / Time / Location / Countdown) -->
-    <section id="page-2" class="book-page page-turn-right absolute w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-4">
-      <div class="mucha-card mucha-border p-4 sm:p-7 relative min-h-[640px] flex flex-col justify-between text-center">
+    <section id="page-2" class="book-page page-turn-right absolute w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-2 sm:my-4">
+      <div class="mucha-card mucha-border p-3.5 sm:p-7 relative min-h-[520px] sm:min-h-[620px] flex flex-col justify-between text-center">
         <!-- Corner Ornaments -->
         <div class="corner-ornament corner-tl"></div>
         <div class="corner-ornament corner-tr"></div>
@@ -325,59 +325,59 @@
         <div class="corner-ornament corner-br"></div>
 
         <!-- Title -->
-        <div class="mt-2">
-          <p class="font-cinzel tracking-[0.25em] text-xs text-mucha-bronze uppercase">Location & Schedule</p>
-          <div class="flex items-center justify-center space-x-2 my-1">
-            <span class="h-[1px] w-10 bg-mucha-gold"></span>
-            <span class="text-mucha-gold text-lg font-semibold font-serif">✦ 婚禮資訊 ✦</span>
-            <span class="h-[1px] w-10 bg-mucha-gold"></span>
+        <div class="mt-1 sm:mt-2">
+          <p class="font-cinzel tracking-[0.2em] sm:tracking-[0.25em] text-[10px] sm:text-xs text-mucha-bronze uppercase">Location & Schedule</p>
+          <div class="flex items-center justify-center space-x-2 my-0.5 sm:my-1">
+            <span class="h-[1px] w-8 sm:w-10 bg-mucha-gold"></span>
+            <span class="text-mucha-gold text-base sm:text-lg font-semibold font-serif">✦ 婚禮資訊 ✦</span>
+            <span class="h-[1px] w-8 sm:w-10 bg-mucha-gold"></span>
           </div>
         </div>
 
-        <!-- Countdown Timer Card (Light Frosted Glass / Glassmorphism) -->
-        <div class="my-2 p-3 rounded-xl bg-white/60 backdrop-blur-md text-mucha-dark shadow-md border border-mucha-gold/50">
-          <p class="text-xs font-cinzel tracking-widest text-mucha-darkgold font-bold mb-1.5">COUNTDOWN TO OUR BIG DAY</p>
-          <div class="grid grid-cols-4 gap-2 text-center">
-            <div class="p-1.5 rounded bg-mucha-gold/10 border border-mucha-gold/30">
-              <span id="cd-days" class="block text-xl sm:text-2xl font-bold font-cinzel text-mucha-darkgold">00</span>
-              <span class="text-[10px] text-mucha-dark/75 font-serif">天 Days</span>
+        <!-- Countdown Timer Card -->
+        <div class="my-1.5 p-2 sm:p-3 rounded-xl bg-white/60 backdrop-blur-md text-mucha-dark shadow-md border border-mucha-gold/50">
+          <p class="text-[10px] sm:text-xs font-cinzel tracking-widest text-mucha-darkgold font-bold mb-1">COUNTDOWN TO OUR BIG DAY</p>
+          <div class="grid grid-cols-4 gap-1.5 sm:gap-2 text-center">
+            <div class="p-1 sm:p-1.5 rounded bg-mucha-gold/10 border border-mucha-gold/30">
+              <span id="cd-days" class="block text-lg sm:text-2xl font-bold font-cinzel text-mucha-darkgold">00</span>
+              <span class="text-[9px] sm:text-[10px] text-mucha-dark/75 font-serif">天 Days</span>
             </div>
-            <div class="p-1.5 rounded bg-mucha-gold/10 border border-mucha-gold/30">
-              <span id="cd-hours" class="block text-xl sm:text-2xl font-bold font-cinzel text-mucha-darkgold">00</span>
-              <span class="text-[10px] text-mucha-dark/75 font-serif">時 Hours</span>
+            <div class="p-1 sm:p-1.5 rounded bg-mucha-gold/10 border border-mucha-gold/30">
+              <span id="cd-hours" class="block text-lg sm:text-2xl font-bold font-cinzel text-mucha-darkgold">00</span>
+              <span class="text-[9px] sm:text-[10px] text-mucha-dark/75 font-serif">時 Hours</span>
             </div>
-            <div class="p-1.5 rounded bg-mucha-gold/10 border border-mucha-gold/30">
-              <span id="cd-mins" class="block text-xl sm:text-2xl font-bold font-cinzel text-mucha-darkgold">00</span>
-              <span class="text-[10px] text-mucha-dark/75 font-serif">分 Mins</span>
+            <div class="p-1 sm:p-1.5 rounded bg-mucha-gold/10 border border-mucha-gold/30">
+              <span id="cd-mins" class="block text-lg sm:text-2xl font-bold font-cinzel text-mucha-darkgold">00</span>
+              <span class="text-[9px] sm:text-[10px] text-mucha-dark/75 font-serif">分 Mins</span>
             </div>
-            <div class="p-1.5 rounded bg-mucha-gold/10 border border-mucha-gold/30">
-              <span id="cd-secs" class="block text-xl sm:text-2xl font-bold font-cinzel text-mucha-darkgold">00</span>
-              <span class="text-[10px] text-mucha-dark/75 font-serif">秒 Secs</span>
+            <div class="p-1 sm:p-1.5 rounded bg-mucha-gold/10 border border-mucha-gold/30">
+              <span id="cd-secs" class="block text-lg sm:text-2xl font-bold font-cinzel text-mucha-darkgold">00</span>
+              <span class="text-[9px] sm:text-[10px] text-mucha-dark/75 font-serif">秒 Secs</span>
             </div>
           </div>
         </div>
 
         <!-- Venue Details -->
-        <div class="space-y-1.5 text-left bg-white/70 p-3 rounded-lg border border-mucha-gold/30 my-1 text-xs sm:text-sm font-serif">
+        <div class="space-y-1 text-left bg-white/70 p-2.5 sm:p-3 rounded-lg border border-mucha-gold/30 my-1 text-xs sm:text-sm font-serif">
           <div class="flex items-start space-x-2">
-            <i class="fa-regular fa-clock text-mucha-gold text-base mt-0.5"></i>
+            <i class="fa-regular fa-clock text-mucha-gold text-sm sm:text-base mt-0.5"></i>
             <div>
               <p class="font-bold text-mucha-dark">日期時間：</p>
               <p class="text-mucha-dark/90 font-medium">2027年1月16日 下午5:30入席</p>
             </div>
           </div>
           <div class="flex items-start space-x-2">
-            <i class="fa-solid fa-hotel text-mucha-gold text-base mt-0.5"></i>
+            <i class="fa-solid fa-hotel text-mucha-gold text-sm sm:text-base mt-0.5"></i>
             <div>
               <p class="font-bold text-mucha-dark">婚禮地點：</p>
               <p class="text-mucha-darkgold font-bold">高雄日航酒店</p>
-              <p class="text-xs text-mucha-dark/75">806 高雄市前鎮區林森四路268號</p>
+              <p class="text-[11px] sm:text-xs text-mucha-dark/75">806 高雄市前鎮區林森四路268號</p>
             </div>
           </div>
         </div>
 
-        <!-- Fixed Embedded Google Map -->
-        <div class="my-2 rounded-lg overflow-hidden border-2 border-mucha-gold shadow-sm h-40 relative bg-gray-100">
+        <!-- Embedded Google Map -->
+        <div class="my-1 sm:my-2 rounded-lg overflow-hidden border-2 border-mucha-gold shadow-sm h-32 sm:h-40 relative bg-gray-100">
           <iframe 
             title="高雄日航酒店地圖"
             src="https://maps.google.com/maps?q=%E9%AB%98%E9%9B%84%E6%97%A5%E8%88%AA%E9%85%92%E5%BA%97&t=&z=16&ie=UTF8&iwloc=&output=embed"
@@ -388,35 +388,35 @@
         </div>
 
         <!-- Transport Info Grid -->
-        <div class="text-left text-xs sm:text-sm text-mucha-dark/90 bg-mucha-cream p-2.5 rounded border border-mucha-gold/30 space-y-1.5 font-serif">
+        <div class="text-left text-xs sm:text-sm text-mucha-dark/90 bg-mucha-cream p-2 sm:p-2.5 rounded border border-mucha-gold/30 space-y-1 font-serif leading-relaxed">
           <p><i class="fa-solid fa-train-subway text-mucha-gold mr-1.5"></i><b>捷運：</b>紅線三多商圈站 2號出口步行約7分鐘</p>
-          <p class="leading-relaxed">
+          <p>
             <i class="fa-solid fa-car text-mucha-gold mr-1.5"></i><b>駕車：</b>請由林森四路轉入飯店地下專用停車場。<br/>
-            <span class="ml-5 block text-mucha-dark/80">周邊另有中華新光停車場、林森文林停車場，皆為飯店特約停車場</span>
+            <span class="ml-4 sm:ml-5 block text-mucha-dark/80 text-[11px] sm:text-xs">周邊另有中華新光停車場、林森文林停車場，皆為飯店特約停車場</span>
           </p>
         </div>
 
         <!-- Action Links -->
-        <div class="flex justify-between items-center mt-2 pt-2 border-t border-mucha-gold/30 font-serif">
-          <button onclick="goToPage(1)" class="px-4 py-1.5 text-xs sm:text-sm rounded-full border border-mucha-gold text-mucha-darkgold hover:bg-mucha-gold/10">
+        <div class="flex justify-between items-center mt-1.5 sm:mt-2 pt-2 border-t border-mucha-gold/30 font-serif">
+          <button onclick="goToPage(1)" class="px-3 sm:px-4 py-1.5 text-xs sm:text-sm rounded-full border border-mucha-gold text-mucha-darkgold hover:bg-mucha-gold/10">
             <i class="fa-solid fa-arrow-left mr-1"></i> 上一頁
           </button>
           
-          <a href="https://maps.google.com/?q=高雄日航酒店" target="_blank" rel="noopener noreferrer" class="btn-mucha px-4 py-1.5 text-xs sm:text-sm rounded-full inline-flex items-center space-x-1">
+          <a href="https://maps.google.com/?q=高雄日航酒店" target="_blank" rel="noopener noreferrer" class="btn-mucha px-3 sm:px-4 py-1.5 text-xs sm:text-sm rounded-full inline-flex items-center space-x-1">
             <i class="fa-solid fa-map-location-dot"></i>
-            <span>開啟 Google 地圖</span>
+            <span>開啟地圖</span>
           </a>
 
-          <button onclick="goToPage(3)" class="btn-mucha px-4 py-1.5 text-xs sm:text-sm rounded-full font-medium">
+          <button onclick="goToPage(3)" class="btn-mucha px-3 sm:px-4 py-1.5 text-xs sm:text-sm rounded-full font-medium">
             祝福專區 <i class="fa-solid fa-arrow-right ml-1"></i>
           </button>
         </div>
       </div>
     </section>
 
-    <!-- PAGE 4: 祝福 (Blessings & Welcoming Message) -->
-    <section id="page-3" class="book-page page-turn-right absolute w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-4">
-      <div class="mucha-card mucha-border p-5 sm:p-8 relative min-h-[640px] flex flex-col justify-between text-center">
+    <!-- PAGE 4: 祝福 (Blessings) -->
+    <section id="page-3" class="book-page page-turn-right absolute w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-2 sm:my-4">
+      <div class="mucha-card mucha-border p-4 sm:p-8 relative min-h-[520px] sm:min-h-[620px] flex flex-col justify-between text-center">
         <!-- Corner Ornaments -->
         <div class="corner-ornament corner-tl"></div>
         <div class="corner-ornament corner-tr"></div>
@@ -425,23 +425,23 @@
 
         <!-- Title -->
         <div class="mt-1">
-          <p class="font-cinzel tracking-[0.25em] text-xs text-mucha-bronze uppercase">Wedding Wishes</p>
-          <div class="flex items-center justify-center space-x-2 my-1">
-            <span class="h-[1px] w-10 bg-mucha-gold"></span>
-            <span class="text-mucha-gold text-xl font-bold font-serif">✦ 祝福 ✦</span>
-            <span class="h-[1px] w-10 bg-mucha-gold"></span>
+          <p class="font-cinzel tracking-[0.2em] sm:tracking-[0.25em] text-[10px] sm:text-xs text-mucha-bronze uppercase">Wedding Wishes</p>
+          <div class="flex items-center justify-center space-x-2 my-0.5 sm:my-1">
+            <span class="h-[1px] w-8 sm:w-10 bg-mucha-gold"></span>
+            <span class="text-mucha-gold text-lg sm:text-xl font-bold font-serif">✦ 祝福 ✦</span>
+            <span class="h-[1px] w-8 sm:w-10 bg-mucha-gold"></span>
           </div>
         </div>
 
         <!-- Slogan -->
-        <div class="my-3 px-4 py-3 rounded-xl bg-mucha-cream border border-mucha-gold/30 shadow-inner font-serif">
-          <p class="text-xl sm:text-2xl text-mucha-darkgold font-bold tracking-widest">
+        <div class="my-2 sm:my-3 px-3 sm:px-4 py-2 sm:py-3 rounded-xl bg-mucha-cream border border-mucha-gold/30 shadow-inner font-serif">
+          <p class="text-lg sm:text-2xl text-mucha-darkgold font-bold tracking-widest">
             「銘刻於心，珈許永恆」
           </p>
         </div>
 
-        <!-- Wedding Photo (No Frame/Border) -->
-        <div class="relative my-3 mx-auto w-full max-w-xs sm:max-w-sm rounded-lg overflow-hidden shadow-lg">
+        <!-- Wedding Photo -->
+        <div class="relative my-2 sm:my-3 mx-auto w-full max-w-[240px] sm:max-w-sm rounded-lg overflow-hidden shadow-lg">
           <img 
             src="https://i.postimg.cc/MTNqSfdj/MIJ02653.jpg" 
             alt="張家銘與柯驊珈婚紗照" 
@@ -451,18 +451,18 @@
         </div>
 
         <!-- Welcoming Sentence -->
-        <div class="my-4 px-4 py-3 bg-mucha-cream/80 rounded-lg border border-mucha-gold/20 font-serif">
-          <p class="text-base sm:text-lg text-mucha-dark font-bold leading-relaxed tracking-wide">
+        <div class="my-2 sm:my-4 px-3 sm:px-4 py-2.5 sm:py-3 bg-mucha-cream/80 rounded-lg border border-mucha-gold/20 font-serif">
+          <p class="text-sm sm:text-lg text-mucha-dark font-bold leading-relaxed tracking-wide">
             誠摯歡迎您的光臨與祝福，期待與您一同見證我們的幸福時刻！
           </p>
         </div>
 
         <!-- Navigation buttons -->
-        <div class="flex justify-between w-full mt-3 pt-2 border-t border-mucha-gold/30 font-serif">
-          <button onclick="goToPage(2)" class="px-5 py-2 text-xs sm:text-sm rounded-full border border-mucha-gold text-mucha-darkgold hover:bg-mucha-gold/10">
+        <div class="flex justify-between w-full mt-2 sm:mt-3 pt-2 border-t border-mucha-gold/30 font-serif">
+          <button onclick="goToPage(2)" class="px-4 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm rounded-full border border-mucha-gold text-mucha-darkgold hover:bg-mucha-gold/10">
             <i class="fa-solid fa-arrow-left mr-1"></i> 上一頁
           </button>
-          <button onclick="goToPage(0)" class="px-5 py-2 text-xs sm:text-sm rounded-full bg-mucha-gold/20 text-mucha-darkgold font-medium hover:bg-mucha-gold/30">
+          <button onclick="goToPage(0)" class="px-4 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm rounded-full bg-mucha-gold/20 text-mucha-darkgold font-medium hover:bg-mucha-gold/30">
             返回首頁 <i class="fa-solid fa-rotate-left ml-1"></i>
           </button>
         </div>
@@ -478,7 +478,7 @@
   </div>
 
   <!-- Footer -->
-  <footer class="w-full text-center py-4 text-[11px] text-mucha-gold/60 border-t border-mucha-gold/20 bg-black/40 font-serif">
+  <footer class="w-full text-center py-3 sm:py-4 text-[10px] sm:text-[11px] text-mucha-gold/60 border-t border-mucha-gold/20 bg-black/40 font-serif">
     <p>© 2027 張家銘 & 柯驊珈 婚禮喜帖 · All Rights Reserved.</p>
   </footer>
 
@@ -487,60 +487,25 @@
     let currentPage = 0;
     const totalPages = 4;
     let isAudioPlaying = false;
-    let userHasInteracted = false;
-    let player;
+    const bgAudio = document.getElementById('bg-music');
 
-    // YouTube Video ID for Dario Marianelli - Dawn (Pride & Prejudice)
-    const VIDEO_ID = 'nc_5XL6ae4I';
-
-    // Load YouTube IFrame Player API
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('yt-player-container', {
-        height: '1',
-        width: '1',
-        videoId: VIDEO_ID,
-        playerVars: {
-          'autoplay': 1,
-          'loop': 1,
-          'playlist': VIDEO_ID,
-          'controls': 0,
-          'playsinline': 1
-        },
-        events: {
-          'onReady': onPlayerReady,
-          'onStateChange': onPlayerStateChange
-        }
-      });
-    }
-
-    function onPlayerReady(event) {
-      event.target.playVideo();
-    }
-
-    function onPlayerStateChange(event) {
-      if (event.data === YT.PlayerState.PLAYING) {
-        isAudioPlaying = true;
-        updateMusicUI(true);
-      } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
-        isAudioPlaying = false;
-        updateMusicUI(false);
-      }
-    }
-
+    // Toggle Audio function (Ad-Free Direct Audio Player)
     function toggleAudio() {
-      if (!player || typeof player.playVideo !== 'function') return;
+      if (!bgAudio) return;
 
       if (isAudioPlaying) {
-        player.pauseVideo();
+        bgAudio.pause();
+        isAudioPlaying = false;
+        updateMusicUI(false);
         showToast("背景音樂已暫停");
       } else {
-        player.playVideo();
-        showToast("♪ 正在播放：Dario Marianelli - Dawn");
+        bgAudio.play().then(() => {
+          isAudioPlaying = true;
+          updateMusicUI(true);
+          showToast("♪ 正在播放：溫暖古典樂《Soft Classical Piano》");
+        }).catch(err => {
+          console.log("Audio play blocked by browser:", err);
+        });
       }
     }
 
@@ -554,16 +519,31 @@
       }
     }
 
-    // Global user interaction handler to unblock audio on mobile and desktop browsers
+    // Try autoplay and bind gesture listener to unblock browser autoplay restrictions
     function initAutoplayOnInteraction() {
-      const handleInteraction = () => {
-        if (player && typeof player.playVideo === 'function' && !isAudioPlaying) {
-          player.playVideo();
-        }
-      };
+      if (!bgAudio) return;
 
-      ['click', 'touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(evt => {
-        document.addEventListener(evt, handleInteraction, { capture: true });
+      // Try playing immediately
+      bgAudio.play().then(() => {
+        isAudioPlaying = true;
+        updateMusicUI(true);
+      }).catch(() => {
+        // Autoplay blocked: wait for first user tap or scroll anywhere on page
+        const handleInteraction = () => {
+          if (!isAudioPlaying && bgAudio) {
+            bgAudio.play().then(() => {
+              isAudioPlaying = true;
+              updateMusicUI(true);
+            }).catch(() => {});
+          }
+          ['click', 'touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(evt => {
+            document.removeEventListener(evt, handleInteraction, { capture: true });
+          });
+        };
+
+        ['click', 'touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(evt => {
+          document.addEventListener(evt, handleInteraction, { capture: true });
+        });
       });
     }
 
@@ -572,8 +552,11 @@
     // Page navigation function with page-turn animation
     function goToPage(targetPage) {
       // Trigger audio playback automatically on page change if not playing yet
-      if (player && typeof player.playVideo === 'function' && !isAudioPlaying) {
-        player.playVideo();
+      if (bgAudio && !isAudioPlaying) {
+        bgAudio.play().then(() => {
+          isAudioPlaying = true;
+          updateMusicUI(true);
+        }).catch(() => {});
       }
 
       if (targetPage === currentPage || targetPage < 0 || targetPage >= totalPages) return;
@@ -583,11 +566,11 @@
 
       // Apply flip direction based on page order
       if (targetPage > currentPage) {
-        currentEl.className = "book-page page-turn-left absolute w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-4";
-        targetEl.className = "book-page page-active w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-4";
+        currentEl.className = "book-page page-turn-left absolute w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-2 sm:my-4";
+        targetEl.className = "book-page page-active w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-2 sm:my-4";
       } else {
         currentEl.className = "book-page page-turn-right absolute w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-4";
-        targetEl.className = "book-page page-active w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-4";
+        targetEl.className = "book-page page-active w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden my-2 sm:my-4";
       }
 
       currentPage = targetPage;
@@ -600,9 +583,9 @@
       for (let i = 0; i < totalPages; i++) {
         const btn = document.getElementById(`nav-btn-${i}`);
         if (i === currentPage) {
-          btn.className = "nav-tab text-xs sm:text-sm px-3 py-1.5 rounded-full transition-all duration-300 font-medium text-mucha-gold border border-mucha-gold/40 bg-mucha-gold/10";
+          btn.className = "nav-tab text-xs sm:text-sm px-2.5 sm:px-3 py-1.5 rounded-full transition-all duration-300 font-medium text-mucha-gold border border-mucha-gold/40 bg-mucha-gold/10";
         } else {
-          btn.className = "nav-tab text-xs sm:text-sm px-3 py-1.5 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold";
+          btn.className = "nav-tab text-xs sm:text-sm px-2.5 sm:px-3 py-1.5 rounded-full transition-all duration-300 font-medium text-gray-300 hover:text-mucha-gold";
         }
       }
     }
