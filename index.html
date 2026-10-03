@@ -169,12 +169,15 @@
           <i class="fa-solid fa-heart mr-1"></i>祝福
         </button>
       </nav>
-      <!-- Music Toggle Button & YouTube Embedded Audio -->
+      <!-- Music Toggle Button & Audio Player -->
       <button id="music-btn" onclick="toggleAudio()" title="播放/暫停背景音樂" class="w-9 h-9 rounded-full border border-mucha-gold/50 flex items-center justify-center text-mucha-gold hover:bg-mucha-gold/20 transition-all">
         <i class="fa-solid fa-music text-sm" id="music-icon"></i>
       </button>
-      <!-- HTML5 Audio Element for 100% Ad-Free Gentle Warm Classical Piano Music -->
-      <audio id="bg-music" loop playsinline preload="auto" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=piano-moment-111728.mp3"></audio>
+      <!-- Multi-source audio element with Wikimedia high-reliability classical piano track -->
+      <audio id="bg-music" loop playsinline preload="auto">
+        <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/6/6c/Johann_Sebastian_Bach_-_Prelude_in_C_Major_BWV_846.ogg/Johann_Sebastian_Bach_-_Prelude_in_C_Major_BWV_846.ogg.mp3" type="audio/mpeg">
+        <source src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Johann_Sebastian_Bach_-_Prelude_in_C_Major_BWV_846.ogg" type="audio/ogg">
+      </audio>
     </div>
   </header>
 
@@ -487,25 +490,89 @@
     let currentPage = 0;
     const totalPages = 4;
     let isAudioPlaying = false;
+    let isUsingSynth = false;
     const bgAudio = document.getElementById('bg-music');
 
-    // Toggle Audio function (Ad-Free Direct Audio Player)
-    function toggleAudio() {
-      if (!bgAudio) return;
+    // Web Audio API Procedural Synth Fallback for guaranteed sound play
+    let audioCtx = null;
+    let synthTimer = null;
+    const synthNotes = [293.66, 369.99, 440.00, 554.37, 440.00, 369.99, 329.63, 392.00, 493.88, 392.00, 293.66, 369.99];
+    let synthIdx = 0;
 
+    function playSynthNote() {
+      if (!isAudioPlaying) return;
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        const freq = synthNotes[synthIdx % synthNotes.length];
+        synthIdx++;
+
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+        gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.1, audioCtx.currentTime + 0.05);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.1);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start();
+        osc.stop(audioCtx.currentTime + 1.15);
+      } catch (e) {
+        console.error("Synth playback error:", e);
+      }
+    }
+
+    function startSynth() {
+      isUsingSynth = true;
+      if (synthTimer) clearInterval(synthTimer);
+      playSynthNote();
+      synthTimer = setInterval(playSynthNote, 550);
+    }
+
+    function stopSynth() {
+      if (synthTimer) {
+        clearInterval(synthTimer);
+        synthTimer = null;
+      }
+      isUsingSynth = false;
+    }
+
+    // Toggle Audio function with fallback handling
+    function toggleAudio() {
       if (isAudioPlaying) {
-        bgAudio.pause();
+        if (bgAudio) bgAudio.pause();
+        stopSynth();
         isAudioPlaying = false;
         updateMusicUI(false);
         showToast("背景音樂已暫停");
       } else {
-        bgAudio.play().then(() => {
+        if (bgAudio) {
+          bgAudio.play().then(() => {
+            isAudioPlaying = true;
+            updateMusicUI(true);
+            showToast("♪ 正在播放：溫暖古典樂《Prelude in C Major》");
+          }).catch(err => {
+            console.log("Audio file play failed, launching Web Audio Synth fallback:", err);
+            isAudioPlaying = true;
+            startSynth();
+            updateMusicUI(true);
+            showToast("♪ 正在播放：浪漫婚禮浪漫八音盒");
+          });
+        } else {
           isAudioPlaying = true;
+          startSynth();
           updateMusicUI(true);
-          showToast("♪ 正在播放：溫暖古典樂《Soft Classical Piano》");
-        }).catch(err => {
-          console.log("Audio play blocked by browser:", err);
-        });
+          showToast("♪ 正在播放：浪漫婚禮浪漫八音盒");
+        }
       }
     }
 
@@ -521,29 +588,17 @@
 
     // Try autoplay and bind gesture listener to unblock browser autoplay restrictions
     function initAutoplayOnInteraction() {
-      if (!bgAudio) return;
-
-      // Try playing immediately
-      bgAudio.play().then(() => {
-        isAudioPlaying = true;
-        updateMusicUI(true);
-      }).catch(() => {
-        // Autoplay blocked: wait for first user tap or scroll anywhere on page
-        const handleInteraction = () => {
-          if (!isAudioPlaying && bgAudio) {
-            bgAudio.play().then(() => {
-              isAudioPlaying = true;
-              updateMusicUI(true);
-            }).catch(() => {});
-          }
-          ['click', 'touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(evt => {
-            document.removeEventListener(evt, handleInteraction, { capture: true });
-          });
-        };
-
+      const handleInteraction = () => {
+        if (!isAudioPlaying) {
+          toggleAudio();
+        }
         ['click', 'touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(evt => {
-          document.addEventListener(evt, handleInteraction, { capture: true });
+          document.removeEventListener(evt, handleInteraction, { capture: true });
         });
+      };
+
+      ['click', 'touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(evt => {
+        document.addEventListener(evt, handleInteraction, { capture: true });
       });
     }
 
@@ -551,12 +606,8 @@
 
     // Page navigation function with page-turn animation
     function goToPage(targetPage) {
-      // Trigger audio playback automatically on page change if not playing yet
-      if (bgAudio && !isAudioPlaying) {
-        bgAudio.play().then(() => {
-          isAudioPlaying = true;
-          updateMusicUI(true);
-        }).catch(() => {});
+      if (!isAudioPlaying) {
+        toggleAudio();
       }
 
       if (targetPage === currentPage || targetPage < 0 || targetPage >= totalPages) return;
